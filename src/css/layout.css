@@ -1,0 +1,66 @@
+/* ============================================================================
+   Vinix UI — App Shell / Layout
+   The DealSync360 chrome: fixed navy header, horizontal nav tabs, quick panel,
+   bottom status bar. Use these to give every product the same skeleton.
+   ============================================================================ */
+
+/* --- Page scaffold --- */
+.vx-app { min-height: 100vh; background: var(--vx-bg); }
+.vx-app-content {
+    padding-top: var(--vx-header-h);
+    padding-bottom: var(--vx-bottom-h);
+    min-height: 100vh;
+    background: var(--vx-bg);
+}
+
+/* --- Header bar (fixed, navy) --- */
+.vx-header-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--vx-header-h);
+    background: var(--vx-header); color: #fff; display: flex; align-items: center;
+    gap: 1rem; padding: 0 1rem; box-shadow: var(--vx-shadow-header);
+}
+.vx-header-bar a { color: inherit; text-decoration: none; }
+.vx-header-search {
+    flex: 1; max-width: 560px; display: flex; align-items: center; gap: .5rem;
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14);
+    border-radius: var(--vx-radius); padding: .375rem .75rem; color: #cbd5e1; font-size: 13px;
+}
+.vx-header-search input { flex: 1; background: transparent; border: 0; outline: none; color: #fff; font-size: 13px; }
+.vx-header-search input::placeholder { color: #94a3b8; }
+
+/* --- Horizontal nav tabs --- */
+.vx-nav { background: #F0F2F5; border-bottom: 1px solid var(--vx-gray-200); }
+.vx-nav-inner { display: flex; align-items: center; gap: .25rem; height: 2.75rem; padding: 0 1rem; overflow-x: auto; }
+.vx-nav-tab {
+    display: inline-flex; align-items: center; gap: .375rem; padding: .375rem .75rem;
+    border-radius: var(--vx-radius); font-size: 13px; font-weight: 500; white-space: nowrap;
+    color: var(--vx-gray-500); cursor: pointer; text-decoration: none;
+    transition: background-color .15s ease, color .15s ease;
+}
+.vx-nav-tab:hover { color: var(--vx-gray-700); background: var(--vx-gray-100); }
+.vx-nav-tab.is-active { background: var(--vx-accent); color: #fff; }
+
+/* --- Quick action bar (icon + label shortcuts) --- */
+.vx-quick-action {
+    display: inline-flex; flex-direction: column; align-items: center; gap: .25rem;
+    padding: .5rem 1.25rem; border-radius: var(--vx-radius-lg); color: var(--vx-gray-500);
+    cursor: pointer; text-decoration: none; transition: background-color .15s ease, color .15s ease;
+}
+.vx-quick-action:hover { background: var(--vx-gray-100); color: var(--vx-gray-700); }
+.vx-quick-action-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+
+/* --- Right quick panel --- */
+.vx-quick-panel { width: 288px; border-left: 1px solid var(--vx-gray-200); background: #fff; overflow-y: auto; }
+.vx-quick-panel-title { font-size: 14px; font-weight: 700; color: var(--vx-gray-900); display: flex; align-items: center; gap: .5rem; }
+.vx-quick-panel-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--vx-gray-400); margin: 1.25rem 0 .5rem; }
+
+/* --- Bottom status bar --- */
+.vx-bottom-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 40; height: var(--vx-bottom-h);
+    background: #fff; border-top: 1px solid var(--vx-gray-200); display: flex; align-items: center;
+    gap: 1rem; padding: 0 .75rem; font-size: 11px; color: var(--vx-gray-500);
+    box-shadow: 0 -1px 3px rgba(0,0,0,.05);
+}
+
+/* --- Container --- */
+.vx-container { width: 100%; max-width: 88rem; margin: 0 auto; padding: 1.25rem; }

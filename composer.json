@@ -1,0 +1,28 @@
+{
+    "name": "vinix/ui",
+    "description": "Vinix UI — shared design system & Blade component library for Laravel. One theme, every product.",
+    "type": "library",
+    "license": "proprietary",
+    "keywords": ["vinix", "ui", "design-system", "laravel", "blade", "components"],
+    "authors": [
+        { "name": "Vinix Infotech Pvt. Ltd." }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vinix\\Ui\\": "src/laravel/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vinix\\Ui\\VinixUiServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

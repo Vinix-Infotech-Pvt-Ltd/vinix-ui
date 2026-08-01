@@ -1,0 +1,90 @@
+/* ============================================================================
+   Vinix UI — Design Tokens
+   ----------------------------------------------------------------------------
+   All components read from these CSS variables. To RE-BRAND a product, override
+   a few variables (usually --vx-accent + --vx-primary-600) in your own CSS,
+   AFTER importing vinix-ui.css. The layout and components stay identical.
+
+   Example (make a product purple):
+     :root{ --vx-accent:#6D28D9; --vx-accent-hover:#5B21B6; --vx-primary-600:#7C3AED; }
+   ============================================================================ */
+:root {
+    /* --- Brand / primary scale (blue by default) --- */
+    --vx-primary-50:  #EFF6FF;
+    --vx-primary-100: #DBEAFE;
+    --vx-primary-200: #BFDBFE;
+    --vx-primary-300: #93C5FD;
+    --vx-primary-400: #60A5FA;
+    --vx-primary-500: #3B82F6;
+    --vx-primary-600: #2563EB;
+    --vx-primary-700: #1D4ED8;
+    --vx-primary-800: #1E3A5F;
+    --vx-primary-900: #1E2A3A;
+    --vx-primary-950: #172135;
+
+    /* Accent = the colour used for primary buttons & active nav tabs (navy).
+       Override this + --vx-primary-600 to re-skin the whole system. */
+    --vx-accent:       #1E3A5F;
+    --vx-accent-hover: #162D4A;
+
+    /* --- Header / navy chrome --- */
+    --vx-header:        #1E2A3A;
+    --vx-header-light:  #2A3A4E;
+    --vx-header-muted:  #94A3B8;
+
+    /* --- Section headings (indigo) --- */
+    --vx-section: #6366F1;
+
+    /* --- Semantic --- */
+    --vx-success-50:#ECFDF5; --vx-success-100:#D1FAE5; --vx-success-500:#10B981; --vx-success-600:#059669; --vx-success-700:#047857;
+    --vx-warning-50:#FEF3C7; --vx-warning-100:#FDE68A; --vx-warning-500:#F59E0B; --vx-warning-600:#D97706; --vx-warning-700:#B45309;
+    --vx-danger-50:#FEF2F2;  --vx-danger-100:#FEE2E2;  --vx-danger-500:#EF4444;  --vx-danger-600:#DC2626;  --vx-danger-700:#B91C1C;
+    --vx-info-50:#EFF6FF;    --vx-info-100:#DBEAFE;    --vx-info-500:#3B82F6;    --vx-info-600:#2563EB;    --vx-info-700:#1D4ED8;
+
+    /* --- Domain (accounting) --- */
+    --vx-debit:  #DC2626;
+    --vx-credit: #059669;
+
+    /* --- Neutrals --- */
+    --vx-gray-50:  #F9FAFB;
+    --vx-gray-100: #F3F4F6;
+    --vx-gray-200: #E5E7EB;
+    --vx-gray-300: #D1D5DB;
+    --vx-gray-400: #9CA3AF;
+    --vx-gray-500: #6B7280;
+    --vx-gray-600: #4B5563;
+    --vx-gray-700: #374151;
+    --vx-gray-800: #1F2937;
+    --vx-gray-900: #111827;
+
+    --vx-surface:   #FFFFFF;   /* cards, menus */
+    --vx-bg:        #F1F5F9;   /* app background */
+    --vx-bg-soft:   #F8FAFC;   /* table head, subtle fills */
+
+    /* --- Typography --- */
+    --vx-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --vx-font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    /* --- Radius --- */
+    --vx-radius-xs: 2px;
+    --vx-radius-sm: 4px;
+    --vx-radius:    6px;
+    --vx-radius-lg: 8px;
+    --vx-radius-xl: 12px;
+    --vx-radius-full: 9999px;
+
+    /* --- Shadows --- */
+    --vx-shadow-sm:       0 1px 2px rgba(0,0,0,.05);
+    --vx-shadow-card:     0 1px 3px rgba(0,0,0,.06);
+    --vx-shadow:          0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --vx-shadow-dropdown: 0 4px 12px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.06);
+    --vx-shadow-modal:    0 20px 40px rgba(0,0,0,.15);
+    --vx-shadow-header:   0 2px 8px rgba(0,0,0,.12);
+
+    /* --- Focus ring --- */
+    --vx-ring: rgba(37, 99, 235, .2);
+
+    /* --- Layout metrics --- */
+    --vx-header-h: 3.5rem;   /* 56px */
+    --vx-bottom-h: 1.75rem;  /* 28px */
+}

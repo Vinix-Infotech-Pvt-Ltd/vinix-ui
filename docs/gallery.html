@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vinix UI — Component Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../dist/vinix-ui.css">
+<style>
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+    h1 { font-family: var(--vx-font-sans); color: var(--vx-gray-900); margin: 0 0 .25rem; }
+    .muted { color: var(--vx-gray-500); font-size: 14px; }
+    h2 { font-family: var(--vx-font-sans); color: var(--vx-gray-900); font-size: 15px; text-transform: uppercase; letter-spacing: .06em; margin: 2.5rem 0 1rem; border-bottom: 1px solid var(--vx-gray-200); padding-bottom: .5rem; }
+    .row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; }
+    .swatch { height: 44px; border-radius: 8px; display: flex; align-items: flex-end; padding: 4px 6px; font-size: 10px; color: #fff; }
+</style>
+</head>
+<body class="vx">
+<div class="wrap">
+    <h1>Vinix UI</h1>
+    <p class="muted">One design system for every Vinix product. This page renders straight from <code>dist/vinix-ui.css</code> + <code>dist/vinix-ui.js</code>.</p>
+
+    <h2>Buttons</h2>
+    <div class="row">
+        <button class="vx-btn vx-btn-primary">Primary</button>
+        <button class="vx-btn vx-btn-accent">Accent</button>
+        <button class="vx-btn vx-btn-secondary">Secondary</button>
+        <button class="vx-btn vx-btn-success">Success</button>
+        <button class="vx-btn vx-btn-danger">Danger</button>
+        <button class="vx-btn vx-btn-ghost">Ghost</button>
+        <button class="vx-btn vx-btn-primary" disabled>Disabled</button>
+    </div>
+    <div class="row" style="margin-top:.75rem">
+        <button class="vx-btn vx-btn-primary vx-btn-sm">Small</button>
+        <button class="vx-btn vx-btn-primary">Medium</button>
+        <button class="vx-btn vx-btn-primary vx-btn-lg">Large</button>
+    </div>
+
+    <h2>Badges</h2>
+    <div class="row">
+        <span class="vx-badge vx-badge-live">LIVE</span>
+        <span class="vx-badge vx-badge-billed">BILLED</span>
+        <span class="vx-badge vx-badge-cancel">CANCEL</span>
+        <span class="vx-badge vx-badge-pending">PENDING</span>
+        <span class="vx-badge vx-badge-warning">HOLD</span>
+        <span class="vx-badge vx-badge-outline-success">PAID</span>
+        <span class="vx-badge vx-badge-outline-danger">DUE</span>
+        <span class="vx-badge vx-badge-outline-info">NEW</span>
+    </div>
+
+    <h2>Stat cards</h2>
+    <div class="grid">
+        <div class="vx-stat-card"><div class="vx-stat-label">Total Saudas</div><div class="vx-stat-value">426</div><div class="vx-stat-trend up">▲ 12% vs last month</div></div>
+        <div class="vx-stat-card"><div class="vx-stat-label">This Month's Brokerage</div><div class="vx-stat-value">₹9,86,450</div><div class="vx-stat-trend up">▲ 18%</div></div>
+        <div class="vx-stat-card"><div class="vx-stat-label">Outstanding</div><div class="vx-stat-value">₹8.74 L</div><div class="vx-stat-trend down">▼ 6%</div></div>
+        <div class="vx-stat-card"><div class="vx-stat-label">Cash Balance</div><div class="vx-stat-value cash">₹2,45,780</div><div class="vx-stat-trend steady">In hand</div></div>
+    </div>
+
+    <h2>Card</h2>
+    <div class="vx-card" style="max-width:420px">
+        <div class="vx-card-header">Recent activity</div>
+        <div class="vx-card-body">
+            <div class="vx-section-divider"><span class="vx-section-divider-text">Account Information</span><span class="vx-section-divider-line"></span></div>
+            <p class="muted" style="margin:0">Cards, section dividers and typography share one system across every product.</p>
+        </div>
+        <div class="vx-card-footer"><button class="vx-btn vx-btn-secondary vx-btn-sm">View all</button></div>
+    </div>
+
+    <h2>Table</h2>
+    <div class="vx-card" style="overflow:hidden">
+        <table class="vx-table">
+            <thead><tr><th>Date</th><th>Sauda</th><th>Buyer</th><th class="vx-col-amount">Amount</th><th>Status</th></tr></thead>
+            <tbody>
+                <tr><td>31/07/2026</td><td class="vx-col-link">SDA-2026-0426</td><td>BlueWave Imports</td><td class="vx-col-amount">8,75,000</td><td><span class="vx-badge vx-badge-pending">UNBILLED</span></td></tr>
+                <tr><td>31/07/2026</td><td class="vx-col-link">SDA-2026-0425</td><td>Global Harvest</td><td class="vx-col-amount">6,42,500</td><td><span class="vx-badge vx-badge-billed">BILLED</span></td></tr>
+                <tr><td>31/07/2026</td><td class="vx-col-link">SDA-2026-0424</td><td>AgriLink</td><td class="vx-col-amount">4,15,000</td><td><span class="vx-badge vx-badge-live">LIVE</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Forms</h2>
+    <div class="grid" style="max-width:640px">
+        <div><label class="vx-label">Party name <span class="vx-required">*</span></label><input class="vx-input" placeholder="Enter name"></div>
+        <div><label class="vx-label">Commodity</label><select class="vx-select"><option>Groundnut</option><option>Cotton</option><option>Soybean</option></select></div>
+        <div><label class="vx-label">Amount</label><input class="vx-input is-error" value="abc"><p class="vx-field-error">Enter a valid amount.</p></div>
+        <div><label class="vx-label">Remarks</label><textarea class="vx-textarea" placeholder="Notes…"></textarea></div>
+    </div>
+
+    <h2>Alerts</h2>
+    <div class="grid">
+        <div class="vx-alert vx-alert-info"><strong>162</strong> Saudas pending billing</div>
+        <div class="vx-alert vx-alert-warning">GST return due in 5 days</div>
+        <div class="vx-alert vx-alert-success">Payment received — ₹20,000</div>
+        <div class="vx-alert vx-alert-danger">3 parties over credit limit</div>
+    </div>
+
+    <h2>Dropdown · Tabs · Modal · Toast</h2>
+    <div class="row" style="align-items:flex-start">
+        <div class="vx-dropdown">
+            <button class="vx-btn vx-btn-secondary" data-vx-dropdown-toggle>Menu ▾</button>
+            <div class="vx-dropdown-menu" hidden>
+                <a class="vx-dropdown-item" href="#">Edit</a>
+                <a class="vx-dropdown-item" href="#">Duplicate</a>
+                <div class="vx-dropdown-divider"></div>
+                <a class="vx-dropdown-item" href="#">Delete</a>
+            </div>
+        </div>
+        <button class="vx-btn vx-btn-primary" data-vx-modal-open="demoModal">Open modal</button>
+        <button class="vx-btn vx-btn-accent" onclick="VinixUI.toast('Saved successfully','success')">Toast</button>
+    </div>
+
+    <div data-vx-tabs style="margin-top:1.25rem">
+        <div class="vx-tabs">
+            <button class="vx-tab is-active" data-vx-tab="a">Recent</button>
+            <button class="vx-tab" data-vx-tab="b">Active</button>
+        </div>
+        <div data-vx-tab-panel="a" style="padding:1rem 0"><span class="muted">Recent panel content.</span></div>
+        <div data-vx-tab-panel="b" style="padding:1rem 0" hidden><span class="muted">Active panel content.</span></div>
+    </div>
+
+    <div id="demoModal" class="vx-modal-backdrop" hidden>
+        <div class="vx-modal" role="dialog" aria-modal="true">
+            <div class="vx-modal-header"><span>Confirm action</span><button class="vx-btn vx-btn-ghost vx-btn-sm" data-vx-modal-close>&times;</button></div>
+            <div class="vx-modal-body"><p class="muted" style="margin:0">This modal, dropdown, tabs and toast all run on the ~2&nbsp;KB vanilla <code>vinix-ui.js</code>.</p></div>
+            <div class="vx-modal-footer"><button class="vx-btn vx-btn-secondary" data-vx-modal-close>Cancel</button><button class="vx-btn vx-btn-primary" data-vx-modal-close>Confirm</button></div>
+        </div>
+    </div>
+
+    <h2>Avatar · Skeleton · Empty · Breadcrumb · Pagination</h2>
+    <div class="row">
+        <span class="vx-avatar">AK</span>
+        <span class="vx-avatar vx-avatar-sm">MB</span>
+        <span class="vx-avatar vx-avatar-lg">VX</span>
+    </div>
+    <div style="max-width:320px;margin-top:1rem;display:flex;flex-direction:column;gap:.5rem">
+        <div class="vx-skeleton" style="width:80%"></div>
+        <div class="vx-skeleton" style="width:60%"></div>
+        <div class="vx-skeleton" style="width:90%"></div>
+    </div>
+    <nav class="vx-breadcrumb" style="margin-top:1rem"><a href="#">Settings</a><span class="vx-sep">/</span><a href="#">System</a><span class="vx-sep">/</span><span class="vx-current">WhatsApp</span></nav>
+    <div class="vx-pagination" style="margin-top:1rem">
+        <a class="vx-page is-disabled">‹</a>
+        <a class="vx-page is-active">1</a>
+        <a class="vx-page">2</a>
+        <a class="vx-page">3</a>
+        <a class="vx-page">›</a>
+    </div>
+</div>
+<script src="../dist/vinix-ui.js"></script>
+</body>
+</html>

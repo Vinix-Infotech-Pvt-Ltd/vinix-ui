@@ -1,0 +1,6 @@
+/* Vinix UI — full stylesheet entry (dev). The build inlines these into
+   dist/vinix-ui.css so consumers load a single flat file. */
+@import "./tokens.css";
+@import "./base.css";
+@import "./components.css";
+@import "./layout.css";

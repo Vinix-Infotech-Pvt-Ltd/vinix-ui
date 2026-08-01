@@ -1,0 +1,20 @@
+/* ============================================================================
+   Vinix UI — Base
+   Minimal, opt-in. We do NOT reset the consumer's whole page. Add the `vx`
+   class to <body> (or wrap in .vx-root) to apply the Vinix font + background.
+   ============================================================================ */
+.vx-root,
+body.vx {
+    font-family: var(--vx-font-sans);
+    color: var(--vx-gray-800);
+    background: var(--vx-bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Shared box-sizing only for elements that opt in via a vx- class. */
+[class^="vx-"], [class*=" vx-"], [class^="vx-"] *, [class*=" vx-"] * {
+    box-sizing: border-box;
+}
+
+.vx-mono { font-family: var(--vx-font-mono); }

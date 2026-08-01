@@ -1,0 +1,12 @@
+node_modules/
+vendor/
+composer.lock
+package-lock.json
+npm-debug.log*
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+# dist/ is committed on purpose so git-tag installs (npm & composer) work
+# without a build step on the consumer side.

@@ -1,0 +1,32 @@
+{
+  "name": "@vinix/ui",
+  "version": "1.0.0",
+  "description": "Vinix UI — shared design system & component library (CSS + vanilla JS + Laravel Blade). One theme, every product.",
+  "license": "UNLICENSED",
+  "author": "Vinix Infotech Pvt. Ltd.",
+  "main": "dist/vinix-ui.js",
+  "style": "dist/vinix-ui.css",
+  "exports": {
+    ".": "./dist/vinix-ui.js",
+    "./css": "./dist/vinix-ui.css",
+    "./preset": "./tailwind-preset.cjs",
+    "./src/*": "./src/*"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "tailwind-preset.cjs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepublishOnly": "node scripts/build.mjs"
+  },
+  "keywords": ["vinix", "ui", "design-system", "components", "css", "blade", "laravel", "saas"],
+  "sideEffects": ["*.css"],
+  "publishConfig": {
+    "access": "restricted"
+  }
+}
