@@ -1,7 +1,14 @@
 @props([
     'title' => null,
+    'variant' => null,       // outlined
+    'interactive' => false,
 ])
-<div {{ $attributes->merge(['class' => 'vx-card']) }}>
+@php
+    $classes = 'vx-card'
+        . ($variant === 'outlined' ? ' vx-card-outlined' : '')
+        . ($interactive ? ' vx-card-interactive' : '');
+@endphp
+<div {{ $attributes->merge(['class' => $classes]) }}>
     @isset($header)
         <div class="vx-card-header">{{ $header }}</div>
     @elseif ($title)

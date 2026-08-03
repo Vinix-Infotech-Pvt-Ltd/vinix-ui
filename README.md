@@ -48,13 +48,27 @@ Override a few variables **after** the stylesheet:
 ```
 Same layout & components, different brand colour.
 
+## Dark mode
+Opt in on any ancestor — the token-driven components flip automatically:
+```html
+<html data-vx-theme="dark">   <!-- or class="vx-dark" on any wrapper -->
+```
+Re-branding still applies in both themes.
+
 ## What's included
-- **Tokens**: colours, type scale, spacing, radii, shadows (`--vx-*`).
-- **Components**: button, card, stat-card, badge, table, input, select, textarea,
-  label, alert, section-divider, dropdown, modal, tabs, avatar, skeleton,
+- **Tokens**: colours, type scale, spacing, radii, shadows (`--vx-*`) + a dark theme.
+- **Components**: button, card (+ outlined/interactive), stat-card, badge, table,
+  input, select, textarea, label, range, file dropzone, input-group, combobox,
+  multiselect, datepicker, alert, section-divider, dropdown, modal, drawer, popover,
+  tabs, accordion, tooltip, switch, checkbox, radio, spinner, chip, progress,
+  segmented control, stepper, timeline, list, avatar (+ group), skeleton,
   empty-state, breadcrumb, pagination, toast.
-- **App shell**: header bar, horizontal nav tabs, quick panel, bottom status bar.
-- **JS behaviors** (`window.VinixUI`): dropdown, modal, tabs, toast — auto-init via `data-vx-*`.
+- **Typography utilities**: `.vx-h1`–`.vx-h4`, `.vx-text-muted`, `.vx-link`.
+- **App shell**: header bar, horizontal nav tabs, quick panel, bottom status bar —
+  responsive, with a mobile nav toggle and off-canvas quick panel.
+- **JS behaviors** (`window.VinixUI`): dropdown, modal (focus-trapped), tabs, toast,
+  accordion, drawer, popover, segmented, combobox, multiselect, datepicker, and a
+  generic `data-vx-toggle` — auto-init via `data-vx-*`.
 - **Tailwind preset** (optional): `require('@vinix/ui/preset')`.
 
 See **`docs/gallery.html`** for a live catalogue of every component.

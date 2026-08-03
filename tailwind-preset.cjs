@@ -35,6 +35,14 @@ module.exports = {
                 debit: '#DC2626',
                 credit: '#059669',
                 rupee: '#111827',
+                // Neutral ramp — mirrors --vx-gray-* in tokens.css
+                gray: {
+                    50: '#F9FAFB', 100: '#F3F4F6', 200: '#E5E7EB', 300: '#D1D5DB',
+                    400: '#9CA3AF', 500: '#6B7280', 600: '#4B5563', 700: '#374151',
+                    800: '#1F2937', 900: '#111827',
+                },
+                surface: '#FFFFFF',
+                bg: { DEFAULT: '#F1F5F9', soft: '#F8FAFC' },
             },
             spacing: { '4.5': '1.125rem', '13': '3.25rem', '15': '3.75rem', '18': '4.5rem', '72': '18rem', '84': '21rem', '88': '22rem' },
             borderRadius: { xs: '2px' },
@@ -58,6 +66,18 @@ module.exports = {
                 '4xl': ['1.75rem', { lineHeight: '2.25rem' }],
             },
             letterSpacing: { 'widest-plus': '0.15em' },
+            keyframes: {
+                'vx-shimmer': { '0%': { backgroundPosition: '200% 0' }, '100%': { backgroundPosition: '-200% 0' } },
+                'vx-toast-in': { from: { opacity: '0', transform: 'translateX(12px)' }, to: { opacity: '1', transform: 'none' } },
+                'vx-spin': { to: { transform: 'rotate(360deg)' } },
+                'vx-progress-slide': { '0%': { marginLeft: '-40%' }, '100%': { marginLeft: '100%' } },
+            },
+            animation: {
+                'vx-shimmer': 'vx-shimmer 1.4s ease-in-out infinite',
+                'vx-toast-in': 'vx-toast-in 0.2s ease-out',
+                'vx-spin': 'vx-spin 0.6s linear infinite',
+                'vx-progress-slide': 'vx-progress-slide 1.2s ease-in-out infinite',
+            },
         },
     },
 };

@@ -19,8 +19,11 @@
 </head>
 <body class="vx">
 <div class="wrap">
-    <h1>Vinix UI</h1>
-    <p class="muted">One design system for every Vinix product. This page renders straight from <code>dist/vinix-ui.css</code> + <code>dist/vinix-ui.js</code>.</p>
+    <div class="row" style="justify-content:space-between">
+        <h1>Vinix UI</h1>
+        <button class="vx-btn vx-btn-secondary vx-btn-sm" id="themeToggle">🌙 Dark</button>
+    </div>
+    <p class="muted">One design system for every Vinix product. This page renders straight from <code>dist/vinix-ui.css</code> + <code>dist/vinix-ui.js</code>. Toggle dark mode to see the token-driven theme flip.</p>
 
     <h2>Buttons</h2>
     <div class="row">
@@ -147,7 +150,160 @@
         <a class="vx-page">3</a>
         <a class="vx-page">›</a>
     </div>
+
+    <h2>Toggles · Choices <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">(switch · checkbox · radio)</span></h2>
+    <div class="row" style="gap:1.5rem">
+        <label class="vx-switch"><input type="checkbox" checked><span class="vx-switch-track"></span><span>WhatsApp alerts</span></label>
+        <label class="vx-switch"><input type="checkbox"><span class="vx-switch-track"></span><span>Auto-billing</span></label>
+        <label class="vx-check"><input type="checkbox" checked><span class="vx-check-box"></span><span>Remember me</span></label>
+        <label class="vx-check vx-check-radio"><input type="radio" name="demo" checked><span class="vx-check-box"></span><span>Cash</span></label>
+        <label class="vx-check vx-check-radio"><input type="radio" name="demo"><span class="vx-check-box"></span><span>Credit</span></label>
+    </div>
+
+    <h2>Chips · Spinners · Tooltip</h2>
+    <div class="row">
+        <span class="vx-chip">Default</span>
+        <span class="vx-chip vx-chip-primary">Primary</span>
+        <span class="vx-chip vx-chip-success">Paid</span>
+        <span class="vx-chip vx-chip-danger">Overdue</span>
+        <span class="vx-chip vx-chip-warning">On hold <button class="vx-chip-remove" aria-label="Remove">&times;</button></span>
+        <span class="vx-spinner"></span>
+        <span class="vx-spinner vx-spinner-lg"></span>
+        <span class="vx-tooltip"><button class="vx-btn vx-btn-secondary vx-btn-sm">Hover me</button><span class="vx-tooltip-bubble">Tooltip text</span></span>
+    </div>
+
+    <h2>Segmented · Stepper · Progress</h2>
+    <div class="row" style="gap:1.5rem">
+        <div class="vx-segmented" data-vx-segmented>
+            <button class="vx-segment is-active">Day</button>
+            <button class="vx-segment">Week</button>
+            <button class="vx-segment">Month</button>
+        </div>
+    </div>
+    <div class="vx-stepper" style="max-width:480px;margin-top:1.5rem">
+        <div class="vx-step is-complete"><span class="vx-step-marker">&#10003;</span><span class="vx-step-label">Details</span></div>
+        <div class="vx-step is-active"><span class="vx-step-marker">2</span><span class="vx-step-label">Payment</span></div>
+        <div class="vx-step"><span class="vx-step-marker">3</span><span class="vx-step-label">Review</span></div>
+    </div>
+    <div style="max-width:480px;margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem">
+        <div class="vx-progress"><div class="vx-progress-bar" style="width:65%"></div></div>
+        <div class="vx-progress"><div class="vx-progress-bar success" style="width:40%"></div></div>
+        <div class="vx-progress vx-progress-indeterminate"><div class="vx-progress-bar"></div></div>
+    </div>
+
+    <h2>Accordion · Popover · Drawer</h2>
+    <div class="vx-accordion" data-vx-accordion data-vx-accordion-single style="max-width:480px">
+        <div class="vx-accordion-item is-open">
+            <button class="vx-accordion-header" data-vx-accordion-toggle>What is Vinix UI?</button>
+            <div class="vx-accordion-body">A shared, token-driven design system for every Vinix product.</div>
+        </div>
+        <div class="vx-accordion-item">
+            <button class="vx-accordion-header" data-vx-accordion-toggle>Does it need Tailwind?</button>
+            <div class="vx-accordion-body">No — the shipped CSS is plain and self-contained.</div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:1.25rem">
+        <div class="vx-popover">
+            <button class="vx-btn vx-btn-secondary" data-vx-popover-toggle>Popover ▾</button>
+            <div class="vx-popover-panel" hidden><strong>Quick note</strong><p style="margin:.25rem 0 0">Arbitrary content in a floating panel.</p></div>
+        </div>
+        <button class="vx-btn vx-btn-primary" data-vx-drawer-open="demoDrawer">Open drawer</button>
+    </div>
+
+    <div id="demoDrawer" class="vx-drawer-backdrop" hidden>
+        <aside class="vx-drawer" role="dialog" aria-modal="true">
+            <div class="vx-drawer-header"><span>Filters</span><button class="vx-btn vx-btn-ghost vx-btn-sm" data-vx-drawer-close>&times;</button></div>
+            <div class="vx-drawer-body"><p class="muted" style="margin:0">Slide-in panel — same JS pattern as the modal.</p></div>
+            <div class="vx-drawer-footer"><button class="vx-btn vx-btn-secondary" data-vx-drawer-close>Close</button><button class="vx-btn vx-btn-primary" data-vx-drawer-close>Apply</button></div>
+        </aside>
+    </div>
+
+    <h2>Advanced inputs <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">(range · file · input-group)</span></h2>
+    <div class="grid" style="max-width:640px">
+        <div><label class="vx-label">Discount</label><input type="range" class="vx-range" min="0" max="100" value="35"></div>
+        <div>
+            <label class="vx-label">Amount</label>
+            <div class="vx-input-group"><span class="vx-input-addon">₹</span><input class="vx-input" placeholder="0"><span class="vx-input-addon">.00</span></div>
+        </div>
+        <div style="grid-column:1/-1">
+            <label class="vx-file">
+                <input type="file">
+                <span class="vx-file-drop"><span><strong>Choose a file</strong> or drag it here</span><span class="vx-text-sm vx-text-muted">PDF, PNG up to 5 MB</span><span class="vx-text-sm vx-text-muted" data-vx-file-name></span></span>
+            </label>
+        </div>
+    </div>
+
+    <h2>Combobox · Multiselect · Datepicker</h2>
+    <div class="grid" style="max-width:640px;align-items:start">
+        <div class="vx-combobox" data-vx-combobox>
+            <label class="vx-label">Commodity</label>
+            <input class="vx-input" placeholder="Search…" data-vx-combobox-input autocomplete="off">
+            <input type="hidden" data-vx-combobox-value>
+            <div class="vx-combobox-menu" hidden>
+                <div class="vx-combobox-option" data-value="gn">Groundnut</div>
+                <div class="vx-combobox-option" data-value="ct">Cotton</div>
+                <div class="vx-combobox-option" data-value="sb">Soybean</div>
+                <div class="vx-combobox-option" data-value="wt">Wheat</div>
+                <div class="vx-combobox-empty" hidden>No matches</div>
+            </div>
+        </div>
+        <div class="vx-multiselect" data-vx-multiselect="tags[]">
+            <label class="vx-label">Tags</label>
+            <div class="vx-multiselect-control"><input class="vx-multiselect-input" placeholder="Add…" data-vx-multiselect-input autocomplete="off"></div>
+            <div class="vx-combobox-menu" hidden>
+                <div class="vx-combobox-option" data-value="vip">VIP</div>
+                <div class="vx-combobox-option" data-value="new">New</div>
+                <div class="vx-combobox-option" data-value="overdue">Overdue</div>
+            </div>
+        </div>
+        <div class="vx-datepicker" data-vx-datepicker>
+            <label class="vx-label">Sauda date</label>
+            <input class="vx-input" placeholder="YYYY-MM-DD" data-vx-datepicker-input autocomplete="off">
+        </div>
+    </div>
+
+    <h2>Timeline · List · Avatar group</h2>
+    <div class="grid" style="align-items:start">
+        <div class="vx-timeline">
+            <div class="vx-timeline-item success"><div class="vx-timeline-time">09:12</div><div class="vx-timeline-title">Payment received</div><div class="vx-timeline-text">₹20,000 from BlueWave Imports</div></div>
+            <div class="vx-timeline-item"><div class="vx-timeline-time">10:40</div><div class="vx-timeline-title">Sauda billed</div><div class="vx-timeline-text">SDA-2026-0425</div></div>
+            <div class="vx-timeline-item danger"><div class="vx-timeline-time">14:05</div><div class="vx-timeline-title">Credit limit exceeded</div></div>
+        </div>
+        <div class="vx-list">
+            <a class="vx-list-item" href="#"><span class="vx-list-item-title">Profile</span><span class="vx-list-item-meta">Edit ›</span></a>
+            <a class="vx-list-item" href="#"><span class="vx-list-item-title">Notifications</span><span class="vx-list-item-meta">On</span></a>
+            <a class="vx-list-item" href="#"><span class="vx-list-item-title">Billing</span><span class="vx-list-item-meta">₹9,860</span></a>
+        </div>
+        <div>
+            <span class="vx-avatar-group">
+                <span class="vx-avatar">AK</span>
+                <span class="vx-avatar">MB</span>
+                <span class="vx-avatar">VX</span>
+                <span class="vx-avatar" style="background:var(--vx-gray-400)">+5</span>
+            </span>
+        </div>
+    </div>
+
+    <h2>Typography · Cards</h2>
+    <p class="vx-h1">Heading one</p>
+    <p class="vx-h2">Heading two</p>
+    <p class="vx-h3">Heading three</p>
+    <p class="vx-text-muted">Muted supporting text, and an inline <a class="vx-link" href="#">text link</a>.</p>
+    <div class="grid" style="margin-top:1rem">
+        <div class="vx-card vx-card-outlined"><div class="vx-card-body">Outlined card — no shadow.</div></div>
+        <div class="vx-card vx-card-interactive"><div class="vx-card-body">Interactive card — hover me.</div></div>
+    </div>
 </div>
 <script src="../dist/vinix-ui.js"></script>
+<script>
+    (function () {
+        var btn = document.getElementById('themeToggle');
+        btn.addEventListener('click', function () {
+            var el = document.documentElement;
+            if (el.getAttribute('data-vx-theme') === 'dark') { el.removeAttribute('data-vx-theme'); btn.textContent = '🌙 Dark'; }
+            else { el.setAttribute('data-vx-theme', 'dark'); btn.textContent = '☀️ Light'; }
+        });
+    })();
+</script>
 </body>
 </html>
