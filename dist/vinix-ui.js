@@ -410,7 +410,7 @@
         init: init, toast: toast,
         openModal: openModal, closeModal: function (id) { closeModal(document.getElementById(id)); },
         openDrawer: openDrawer, closeDrawer: function (id) { closeDrawer(document.getElementById(id)); },
-        version: '1.1.0'
+        version: '1.1.2'
     };
     global.VinixUI = VinixUI;
     if (typeof module !== 'undefined' && module.exports) module.exports = VinixUI;
