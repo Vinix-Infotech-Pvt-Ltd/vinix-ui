@@ -45,8 +45,8 @@ In a bundler: `import '@vinixinfotech/ui/css';` and `import VinixUI from '@vinix
 
 **CDN (prototypes)** — via jsDelivr from a tag:
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.3/dist/vinix-ui.css">
-<script src="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.3/dist/vinix-ui.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.4/dist/vinix-ui.css">
+<script src="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.4/dist/vinix-ui.js"></script>
 ```
 
 ### Composer — Laravel Blade

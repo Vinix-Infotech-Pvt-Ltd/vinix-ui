@@ -22,7 +22,7 @@ The core stylesheet and JS have **zero runtime dependencies**. Drop in `dist/vin
 npm install @vinixinfotech/ui
 ```
 
-> Prefer to pin a git tag instead of the registry? `npm install "git+https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui.git#v1.1.3"`
+> Prefer to pin a git tag instead of the registry? `npm install "git+https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui.git#v1.1.4"`
 
 ### (a) Plain HTML — link `dist` from `node_modules`
 
@@ -57,8 +57,8 @@ The package exports map:
 Pull the built files straight from the GitHub tag:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.3/dist/vinix-ui.css">
-<script src="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.3/dist/vinix-ui.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.4/dist/vinix-ui.css">
+<script src="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.4/dist/vinix-ui.js"></script>
 
 <body class="vx">
   <button class="vx-btn vx-btn-primary">Save</button>
@@ -124,14 +124,14 @@ Save this as `index.html` and open it in a browser. Clicking the button should f
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vinix UI test</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.3/dist/vinix-ui.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.4/dist/vinix-ui.css">
 </head>
 <body class="vx">
   <button class="vx-btn vx-btn-primary" onclick="VinixUI.toast('Vinix UI is working!', 'success')">
     Show toast
   </button>
 
-  <script src="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.3/dist/vinix-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Vinix-Infotech-Pvt-Ltd/vinix-ui@v1.1.4/dist/vinix-ui.js"></script>
 </body>
 </html>
 ```

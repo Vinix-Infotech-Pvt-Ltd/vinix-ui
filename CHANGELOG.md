@@ -13,6 +13,13 @@ project adheres to [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ## [Unreleased]
 
+## [1.1.4] — 2026-08-03
+### Fixed
+- GitHub Pages gallery now loads its CSS/JS. Pages serves the site from the
+  `docs/` folder as root, so the old `../dist/*` paths 404'd. The build now
+  mirrors the compiled `vinix-ui.css` / `vinix-ui.js` into `docs/`, and
+  `docs/gallery.html` references them with same-folder relative paths.
+
 ## [1.1.3] — 2026-08-03
 ### Added
 - **Documentation set** under `docs/`: getting-started (npm + Composer install),
