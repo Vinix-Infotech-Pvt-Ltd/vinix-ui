@@ -13,6 +13,16 @@ project adheres to [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ## [Unreleased]
 
+## [1.1.5] — 2026-08-03
+### Fixed
+- **Laravel: the documented `<x-vx-button>` (hyphen) Blade syntax now works.**
+  Previously the service provider only registered the components via
+  `anonymousComponentPath(..., 'vx')`, which exposes them as `<x-vx::button>`
+  (double-colon) — so every hyphen example in the docs failed with
+  "Unable to locate a class or view for component". The provider now also
+  registers a `vx-{name}` alias per component (mapped to `vinix-ui::components.{name}`),
+  so **both** `<x-vx-button>` and `<x-vx::button>` work. No markup or CSS changes.
+
 ## [1.1.4] — 2026-08-03
 ### Fixed
 - GitHub Pages gallery now loads its CSS/JS. Pages serves the site from the
