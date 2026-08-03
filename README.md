@@ -11,13 +11,13 @@ no framework required.
 
 ### npm (pure JS / HTML / bundlers)
 ```bash
-npm install @vinix/ui          # from the npm registry
+npm install @vinixinfotech/ui          # from the npm registry
 # or pin a git tag:
 npm install "git+https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui.git#v1.1.1"
 ```
 ```html
-<link rel="stylesheet" href="node_modules/@vinix/ui/dist/vinix-ui.css">
-<script src="node_modules/@vinix/ui/dist/vinix-ui.js"></script>
+<link rel="stylesheet" href="node_modules/@vinixinfotech/ui/dist/vinix-ui.css">
+<script src="node_modules/@vinixinfotech/ui/dist/vinix-ui.js"></script>
 
 <body class="vx">
   <button class="vx-btn vx-btn-primary">Save</button>
@@ -69,7 +69,7 @@ Re-branding still applies in both themes.
 - **JS behaviors** (`window.VinixUI`): dropdown, modal (focus-trapped), tabs, toast,
   accordion, drawer, popover, segmented, combobox, multiselect, datepicker, and a
   generic `data-vx-toggle` — auto-init via `data-vx-*`.
-- **Tailwind preset** (optional): `require('@vinix/ui/preset')`.
+- **Tailwind preset** (optional): `require('@vinixinfotech/ui/preset')`.
 
 See **`docs/gallery.html`** for a live catalogue of every component.
 

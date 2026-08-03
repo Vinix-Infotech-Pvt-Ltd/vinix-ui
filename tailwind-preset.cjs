@@ -4,7 +4,7 @@
  * Projects that use Tailwind can share the exact tokens as utility classes:
  *
  *   // tailwind.config.js  (CommonJS)
- *   module.exports = { presets: [require('@vinix/ui/preset')], content: [...] }
+ *   module.exports = { presets: [require('@vinixinfotech/ui/preset')], content: [...] }
  *
  * The component CSS in dist/vinix-ui.css does NOT need Tailwind — it is plain,
  * self-contained CSS driven by the --vx-* variables in tokens.css. This preset

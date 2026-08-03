@@ -8,7 +8,7 @@ Context for any Claude session working in this folder
 Vinix Infotech builds**. One theme, one layout language, reused everywhere.
 
 It ships from a **single source** to **two package managers**:
-- **npm** → `@vinix/ui` — for pure-JS / plain-HTML projects (and bundlers).
+- **npm** → `@vinixinfotech/ui` — for pure-JS / plain-HTML projects (and bundlers).
 - **Composer** → `vinix/ui` — for Laravel apps (`<x-vx-*>` Blade components).
 
 The look was **ported from DealSync360** (`../DealSync360/DealSync360/dealsync360`).
@@ -31,7 +31,7 @@ this repo is standalone; we only copied styles out of it.
 ## File map
 ```
 vinix-ui/
-  package.json            npm package (@vinix/ui) — version lives here
+  package.json            npm package (@vinixinfotech/ui) — version lives here
   composer.json           composer package (vinix/ui)
   tailwind-preset.cjs     optional Tailwind preset (mirror of tokens.css)
   scripts/build.mjs       zero-dep build: inlines src/css/* -> dist, copies js
@@ -55,8 +55,8 @@ vinix-ui/
 
 ### Pure JS / HTML (npm)
 ```html
-<link rel="stylesheet" href="node_modules/@vinix/ui/dist/vinix-ui.css">
-<script src="node_modules/@vinix/ui/dist/vinix-ui.js"></script>
+<link rel="stylesheet" href="node_modules/@vinixinfotech/ui/dist/vinix-ui.css">
+<script src="node_modules/@vinixinfotech/ui/dist/vinix-ui.js"></script>
 <body class="vx">
   <button class="vx-btn vx-btn-primary">Save</button>
 </body>
@@ -92,7 +92,7 @@ Then use components:
 ### Tailwind users (optional)
 ```js
 // tailwind.config.js
-module.exports = { presets: [require('@vinix/ui/preset')], content: [...] };
+module.exports = { presets: [require('@vinixinfotech/ui/preset')], content: [...] };
 ```
 
 ## Build
@@ -108,7 +108,7 @@ Semantic versioning `MAJOR.MINOR.PATCH`:
 - **MINOR** (1.2→1.3): new component/feature, backward-compatible.
 - **MAJOR** (1.x→2.0): breaking (renamed/removed class, changed markup/props).
 
-Consumers pin (`"@vinix/ui":"^1.2"` / `"vinix/ui":"^1.2"`) and freeze the exact
+Consumers pin (`"@vinixinfotech/ui":"^1.2"` / `"vinix/ui":"^1.2"`) and freeze the exact
 version in their lockfile. **Publishing a new version never touches an existing
 project** until it runs `npm/composer update`. So a v1.2 product stays on v1.2
 until it opts in — exactly the isolation we want.
