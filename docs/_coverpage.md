@@ -1,6 +1,6 @@
 <!-- docs/_coverpage.md — Docsify cover -->
 
-# Vinix UI <small>1.1.2</small>
+# Vinix UI <small>1.1.3</small>
 
 > One design system for every Vinix product — CSS + vanilla JS + Laravel Blade.
 

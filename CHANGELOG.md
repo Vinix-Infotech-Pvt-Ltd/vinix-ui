@@ -12,14 +12,18 @@ project adheres to [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 > an installed project until it runs `npm update` / `composer update`.
 
 ## [Unreleased]
+
+## [1.1.3] — 2026-08-03
 ### Added
 - **Documentation set** under `docs/`: getting-started (npm + Composer install),
   full component reference, theming & tokens guide, JavaScript/behaviors reference,
   and a docs hub (`docs/README.md`). Rewrote the top-level README with badges and
-  links into the guides.
+  links into the guides. Added a Docsify site for GitHub Pages.
 
 ### Fixed
 - `VinixUI.version` now reports the correct version (was hard-coded `"1.1.0"`).
+- The build now injects the package version into the JS automatically, so
+  `VinixUI.version` and the CSS banner can never drift from `package.json` again.
 
 ## [1.1.2] — 2026-08-03
 ### Changed

@@ -16,13 +16,18 @@ const dist = join(root, 'dist');
 mkdirSync(dist, { recursive: true });
 
 const order = ['tokens.css', 'base.css', 'components.css', 'layout.css'];
-const banner = `/*! Vinix UI v${JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).version} | (c) Vinix Infotech Pvt. Ltd. | MIT License */\n`;
+const version = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).version;
+const banner = `/*! Vinix UI v${version} | (c) Vinix Infotech Pvt. Ltd. | MIT License */\n`;
 
 const css = banner + order
     .map((f) => `/* ==== ${f} ==== */\n` + readFileSync(join(cssDir, f), 'utf8').trim())
     .join('\n\n');
 
-writeFileSync(join(dist, 'vinix-ui.css'), css + '\n');
-writeFileSync(join(dist, 'vinix-ui.js'), readFileSync(join(root, 'src', 'js', 'vinix-ui.js'), 'utf8'));
+// Inject the package version into the JS so VinixUI.version can never drift.
+const js = readFileSync(join(root, 'src', 'js', 'vinix-ui.js'), 'utf8')
+    .replace(/version:\s*'[^']*'/, `version: '${version}'`);
 
-console.log('Vinix UI built -> dist/vinix-ui.css (' + css.length + ' bytes), dist/vinix-ui.js');
+writeFileSync(join(dist, 'vinix-ui.css'), css + '\n');
+writeFileSync(join(dist, 'vinix-ui.js'), js);
+
+console.log(`Vinix UI v${version} built -> dist/vinix-ui.css (${css.length} bytes), dist/vinix-ui.js`);
