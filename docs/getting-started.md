@@ -159,7 +159,7 @@ Consumers **pin a version** and are never affected by new releases until they ex
 - **npm** — pin a caret range in `package.json` (e.g. `"@vinixinfotech/ui": "^1.1"`); the exact version is frozen in `package-lock.json`. Upgrade with `npm update @vinixinfotech/ui`.
 - **Composer** — pin in `composer.json` (e.g. `"vinix/ui": "^1.1"`); frozen in `composer.lock`. Upgrade with `composer update vinix/ui`.
 
-Vinix UI follows [semver](https://semver.org): PATCH = fixes, MINOR = new backward-compatible components, MAJOR = breaking changes. Because you pin, a v1.1 product stays on v1.1 until it opts in. Review what changed before upgrading in [CHANGELOG.md](../CHANGELOG.md).
+Vinix UI follows [semver](https://semver.org): PATCH = fixes, MINOR = new backward-compatible components, MAJOR = breaking changes. Because you pin, a v1.1 product stays on v1.1 until it opts in. Review what changed before upgrading in [CHANGELOG.md](https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui/blob/main/CHANGELOG.md).
 
 ---
 
@@ -168,4 +168,4 @@ Vinix UI follows [semver](https://semver.org): PATCH = fixes, MINOR = new backwa
 - [Components reference](./components.md) — every `.vx-*` class and `<x-vx-*>` component.
 - [Theming](./theming.md) — re-brand a product and enable dark mode via `--vx-*` variables.
 - [JavaScript behaviors](./javascript.md) — the `window.VinixUI` API and `data-vx-*` auto-init.
-- [Live component gallery](../docs/gallery.html) — open in a browser to see everything rendered.
+- [Live component gallery](gallery.html) — open in a browser to see everything rendered.

@@ -49,11 +49,11 @@ See **[Getting Started](./getting-started.md)** for the full walkthrough.
 2. **Plain CSS, no framework required.** The shipped `dist/vinix-ui.css` is self-contained and driven by `--vx-*` variables. Tailwind is an optional convenience, never a requirement.
 3. **Theme via variables.** Re-brand a product by overriding a few `--vx-*` vars (usually `--vx-accent` + `--vx-primary-600`). See [Theming](./theming.md).
 4. **Behaviors auto-init.** Load `vinix-ui.js` and components wire themselves from `data-vx-*` attributes. See [JavaScript](./javascript.md).
-5. **Semver + pinning.** Consumers pin a version (`^1.1`) and are unaffected by new releases until they run `npm/composer update`. See the [Changelog](../CHANGELOG.md).
+5. **Semver + pinning.** Consumers pin a version (`^1.1`) and are unaffected by new releases until they run `npm/composer update`. See the [Changelog](https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui/blob/main/CHANGELOG.md).
 
 ## Links
 
 - **npm:** https://www.npmjs.com/package/@vinixinfotech/ui
 - **Packagist:** https://packagist.org/packages/vinix/ui
 - **Source:** https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui
-- **License:** [MIT](../LICENSE)
+- **License:** [MIT](https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui/blob/main/LICENSE)

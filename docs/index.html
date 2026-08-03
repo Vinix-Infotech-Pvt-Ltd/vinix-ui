@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vinix UI — Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vinix UI — shared design system & component library (CSS + vanilla JS + Laravel Blade). One theme, every product.">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    :root{
+      --theme-color:#1E3A5F;               /* Vinix navy accent */
+      --theme-color-secondary:#2563EB;
+    }
+    .app-name-link{ font-weight:700; letter-spacing:.01em; }
+    .sidebar .app-name{ margin-top:1rem; }
+    .cover.show{ background:linear-gradient(to bottom, #F1F5F9, #FFFFFF)!important; }
+    .cover .cover-main > p:last-child a{ border-radius:6px; }
+    .markdown-section code{ border-radius:4px; }
+    .markdown-section table{ display:table; width:100%; }
+  </style>
+</head>
+<body>
+  <div id="app">Loading the Vinix UI docs…</div>
+  <script>
+    window.$docsify = {
+      name: 'Vinix UI',
+      repo: 'https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui',
+      homepage: 'README.md',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      coverpage: true,
+      onlyCover: false,
+      auto2top: true,
+      themeColor: '#1E3A5F',
+      relativePath: true,
+      search: {
+        placeholder: 'Search the docs…',
+        noData: 'No results found.',
+        depth: 3
+      }
+    };
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+  <!-- Extra Prism languages for code blocks -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markup.min.js"></script>
+</body>
+</html>

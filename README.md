@@ -16,7 +16,7 @@ every product**. Ships from a single source to **npm** (pure JS / HTML) and
 
 ## Documentation
 
-📖 **Full docs live in [`docs/`](docs/README.md).**
+📖 **Docs site:** https://vinix-infotech-pvt-ltd.github.io/vinix-ui/ · source in [`docs/`](docs/README.md).
 
 | Guide | What's inside |
 |-------|---------------|
