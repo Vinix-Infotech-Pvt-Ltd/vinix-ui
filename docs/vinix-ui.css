@@ -1,0 +1,788 @@
+/*! Vinix UI v2.0.0 | (c) Vinix Infotech Pvt. Ltd. | MIT License */
+/* ==== tokens.css ==== */
+/* ============================================================================
+   Vinix UI — Design Tokens
+   ----------------------------------------------------------------------------
+   All components read from these CSS variables. To RE-BRAND a product, override
+   a few variables (usually --vx-accent + --vx-primary-600) in your own CSS,
+   AFTER importing vinix-ui.css. The layout and components stay identical.
+
+   Example (make a product purple):
+     :root{ --vx-accent:#6D28D9; --vx-accent-hover:#5B21B6; --vx-primary-600:#7C3AED; }
+   ============================================================================ */
+:root {
+    /* --- Brand / primary scale (blue by default) --- */
+    --vx-primary-50:  #EFF6FF;
+    --vx-primary-100: #DBEAFE;
+    --vx-primary-200: #BFDBFE;
+    --vx-primary-300: #93C5FD;
+    --vx-primary-400: #60A5FA;
+    --vx-primary-500: #3B82F6;
+    --vx-primary-600: #2563EB;
+    --vx-primary-700: #1D4ED8;
+    --vx-primary-800: #1E3A5F;
+    --vx-primary-900: #1E2A3A;
+    --vx-primary-950: #172135;
+
+    /* Accent = the colour used for primary buttons & active nav tabs (navy).
+       Override this + --vx-primary-600 to re-skin the whole system. */
+    --vx-accent:       #1E3A5F;
+    --vx-accent-hover: #162D4A;
+
+    /* --- Header / navy chrome --- */
+    --vx-header:        #1E2A3A;
+    --vx-header-light:  #2A3A4E;
+    --vx-header-muted:  #94A3B8;
+
+    /* --- Section headings (indigo) --- */
+    --vx-section: #6366F1;
+
+    /* --- Semantic --- */
+    --vx-success-50:#ECFDF5; --vx-success-100:#D1FAE5; --vx-success-500:#10B981; --vx-success-600:#059669; --vx-success-700:#047857;
+    --vx-warning-50:#FEF3C7; --vx-warning-100:#FDE68A; --vx-warning-500:#F59E0B; --vx-warning-600:#D97706; --vx-warning-700:#B45309;
+    --vx-danger-50:#FEF2F2;  --vx-danger-100:#FEE2E2;  --vx-danger-500:#EF4444;  --vx-danger-600:#DC2626;  --vx-danger-700:#B91C1C;
+    --vx-info-50:#EFF6FF;    --vx-info-100:#DBEAFE;    --vx-info-500:#3B82F6;    --vx-info-600:#2563EB;    --vx-info-700:#1D4ED8;
+
+    /* --- Domain (accounting) --- */
+    --vx-debit:  #DC2626;
+    --vx-credit: #059669;
+
+    /* --- Neutrals --- */
+    --vx-gray-50:  #F9FAFB;
+    --vx-gray-100: #F3F4F6;
+    --vx-gray-200: #E5E7EB;
+    --vx-gray-300: #D1D5DB;
+    --vx-gray-400: #9CA3AF;
+    --vx-gray-500: #6B7280;
+    --vx-gray-600: #4B5563;
+    --vx-gray-700: #374151;
+    --vx-gray-800: #1F2937;
+    --vx-gray-900: #111827;
+
+    --vx-surface:   #FFFFFF;   /* cards, menus */
+    --vx-bg:        #F1F5F9;   /* app background */
+    --vx-bg-soft:   #F8FAFC;   /* table head, subtle fills */
+
+    /* --- Typography --- */
+    --vx-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --vx-font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    /* --- Radius --- */
+    --vx-radius-xs: 2px;
+    --vx-radius-sm: 4px;
+    --vx-radius:    6px;
+    --vx-radius-lg: 8px;
+    --vx-radius-xl: 12px;
+    --vx-radius-full: 9999px;
+
+    /* --- Shadows --- */
+    --vx-shadow-sm:       0 1px 2px rgba(0,0,0,.05);
+    --vx-shadow-card:     0 1px 3px rgba(0,0,0,.06);
+    --vx-shadow:          0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --vx-shadow-dropdown: 0 4px 12px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.06);
+    --vx-shadow-modal:    0 20px 40px rgba(0,0,0,.15);
+    --vx-shadow-header:   0 2px 8px rgba(0,0,0,.12);
+
+    /* --- Focus ring --- */
+    --vx-ring: rgba(37, 99, 235, .2);
+
+    /* --- Overlay (modal / drawer backdrops) --- */
+    --vx-overlay: rgba(15, 23, 42, .5);
+
+    /* --- Layout metrics --- */
+    --vx-header-h: 3.5rem;   /* 56px */
+    --vx-bottom-h: 1.75rem;  /* 28px */
+}
+
+/* ============================================================================
+   Dark theme — OPT IN with  <html data-vx-theme="dark">  or  class="vx-dark".
+   Strategy: flip the neutral ramp + surfaces so the token-driven components
+   adapt automatically, with no per-component dark rules. Brand & semantic hues
+   stay the same (they read on dark too). Re-brand still works: override
+   --vx-accent / --vx-primary-600 as usual — it applies in both themes.
+   ============================================================================ */
+[data-vx-theme="dark"],
+.vx-dark {
+    /* surfaces */
+    --vx-surface:   #1B2430;   /* cards, menus, inputs */
+    --vx-bg:        #0F1620;   /* app background */
+    --vx-bg-soft:   #232E3C;   /* table head, subtle fills */
+
+    /* inverted neutral ramp: 50 = darkest fill, 900 = lightest text */
+    --vx-gray-50:  #1B2430;
+    --vx-gray-100: #232E3C;
+    --vx-gray-200: #2E3A49;
+    --vx-gray-300: #3B4859;
+    --vx-gray-400: #64748B;
+    --vx-gray-500: #94A3B8;
+    --vx-gray-600: #CBD5E1;
+    --vx-gray-700: #E2E8F0;
+    --vx-gray-800: #F1F5F9;
+    --vx-gray-900: #F8FAFC;
+
+    /* muted semantic tints need darker fills so light text stays legible */
+    --vx-success-50: #0E2A22; --vx-success-100: #12362B;
+    --vx-warning-50: #2E2410; --vx-warning-100: #3A2E14;
+    --vx-danger-50:  #2E1616; --vx-danger-100:  #3A1B1B;
+    --vx-info-50:    #14243A; --vx-info-100:    #182C46;
+
+    --vx-ring: rgba(96, 165, 250, .35);
+    --vx-overlay: rgba(0, 0, 0, .6);
+
+    --vx-shadow-sm:       0 1px 2px rgba(0,0,0,.4);
+    --vx-shadow-card:     0 1px 3px rgba(0,0,0,.4);
+    --vx-shadow:          0 1px 3px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.3);
+    --vx-shadow-dropdown: 0 4px 12px rgba(0,0,0,.5), 0 1px 3px rgba(0,0,0,.4);
+    --vx-shadow-modal:    0 20px 40px rgba(0,0,0,.6);
+    --vx-shadow-header:   0 2px 8px rgba(0,0,0,.5);
+
+    color-scheme: dark;
+}
+
+/* ==== base.css ==== */
+/* ============================================================================
+   Vinix UI — Base
+   Minimal, opt-in. We do NOT reset the consumer's whole page. Add the `vx`
+   class to <body> (or wrap in .vx-root) to apply the Vinix font + background.
+   ============================================================================ */
+.vx-root,
+body.vx {
+    font-family: var(--vx-font-sans);
+    color: var(--vx-gray-800);
+    background: var(--vx-bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Shared box-sizing only for elements that opt in via a vx- class. */
+[class^="vx-"], [class*=" vx-"], [class^="vx-"] *, [class*=" vx-"] * {
+    box-sizing: border-box;
+}
+
+.vx-mono { font-family: var(--vx-font-mono); }
+
+/* --- Typography & link utilities --- */
+.vx-h1 { font-family: var(--vx-font-sans); font-size: 1.75rem; font-weight: 700; line-height: 1.2; color: var(--vx-gray-900); margin: 0; }
+.vx-h2 { font-family: var(--vx-font-sans); font-size: 1.375rem; font-weight: 700; line-height: 1.25; color: var(--vx-gray-900); margin: 0; }
+.vx-h3 { font-family: var(--vx-font-sans); font-size: 1.125rem; font-weight: 600; line-height: 1.3; color: var(--vx-gray-900); margin: 0; }
+.vx-h4 { font-family: var(--vx-font-sans); font-size: 1rem; font-weight: 600; line-height: 1.35; color: var(--vx-gray-900); margin: 0; }
+.vx-text-muted { color: var(--vx-gray-500); }
+.vx-text-sm { font-size: 13px; }
+.vx-link { color: var(--vx-primary-600); text-decoration: none; font-weight: 500; cursor: pointer; }
+.vx-link:hover { color: var(--vx-primary-700); text-decoration: underline; }
+
+/* ==== components.css ==== */
+/* ============================================================================
+   Vinix UI — Components  (plain CSS, driven by --vx-* tokens; no Tailwind needed)
+   Ported faithfully from the DealSync360 design system.
+   Prefix: .vx-*
+   ============================================================================ */
+
+/* ------------------------------ BUTTONS ---------------------------------- */
+.vx-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    font-family: var(--vx-font-sans); font-weight: 600; font-size: 13px;
+    text-transform: uppercase; letter-spacing: .025em; line-height: 1.2;
+    padding: .625rem 1.25rem; border-radius: var(--vx-radius);
+    border: 1px solid transparent; cursor: pointer; text-decoration: none;
+    transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, transform .15s ease;
+    white-space: nowrap;
+}
+.vx-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--vx-accent); }
+.vx-btn:disabled, .vx-btn[disabled] { opacity: .5; cursor: not-allowed; }
+.vx-btn-sm { padding: .375rem .75rem; font-size: 12px; }
+.vx-btn-lg { padding: .75rem 1.75rem; }
+.vx-btn-block { width: 100%; }
+
+.vx-btn-primary   { background: var(--vx-accent);       color: #fff; box-shadow: var(--vx-shadow-sm); }
+.vx-btn-primary:hover:not(:disabled)   { background: var(--vx-accent-hover); }
+.vx-btn-accent    { background: var(--vx-primary-600);  color: #fff; box-shadow: var(--vx-shadow-sm); }
+.vx-btn-accent:hover:not(:disabled)    { background: var(--vx-primary-700); }
+.vx-btn-secondary { background: var(--vx-surface); color: var(--vx-gray-700); border-color: var(--vx-gray-300); }
+.vx-btn-secondary:hover:not(:disabled) { background: var(--vx-gray-50); }
+.vx-btn-danger    { background: var(--vx-danger-600);  color: #fff; box-shadow: var(--vx-shadow-sm); }
+.vx-btn-danger:hover:not(:disabled)    { background: var(--vx-danger-700); }
+.vx-btn-success   { background: var(--vx-success-600); color: #fff; box-shadow: var(--vx-shadow-sm); }
+.vx-btn-success:hover:not(:disabled)   { background: var(--vx-success-700); }
+.vx-btn-ghost     { background: transparent; color: var(--vx-primary-600); }
+.vx-btn-ghost:hover:not(:disabled)     { background: var(--vx-primary-50); }
+
+/* ------------------------------ CARDS ------------------------------------ */
+.vx-card {
+    background: var(--vx-surface); border: 1px solid var(--vx-gray-200);
+    border-radius: var(--vx-radius-lg); box-shadow: var(--vx-shadow-card);
+}
+.vx-card-header {
+    padding: 1rem 1.25rem; border-bottom: 1px solid var(--vx-gray-100);
+    background: var(--vx-bg-soft); font-weight: 600; color: var(--vx-gray-900);
+    font-size: 14px; border-top-left-radius: var(--vx-radius-lg); border-top-right-radius: var(--vx-radius-lg);
+}
+.vx-card-body   { padding: 1.25rem; }
+.vx-card-footer { padding: 1rem 1.25rem; border-top: 1px solid var(--vx-gray-100); }
+
+/* ------------------------------ STAT CARD -------------------------------- */
+.vx-stat-card {
+    background: var(--vx-surface); border: 1px solid var(--vx-gray-200);
+    border-radius: var(--vx-radius-lg); box-shadow: var(--vx-shadow-card);
+    padding: 1.25rem; min-height: 100px;
+}
+.vx-stat-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--vx-gray-500); }
+.vx-stat-value { font-weight: 700; color: var(--vx-gray-900); margin-top: .375rem; line-height: 1.15;
+    font-size: clamp(1.25rem, 1rem + 2.2vw, 1.75rem); overflow-wrap: anywhere; }
+.vx-stat-value.cash { color: var(--vx-primary-600); }
+.vx-stat-trend { display: inline-flex; align-items: center; gap: .25rem; font-size: 11px; font-weight: 500; margin-top: .5rem; }
+.vx-stat-trend.up { color: var(--vx-success-500); }
+.vx-stat-trend.down { color: var(--vx-danger-500); }
+.vx-stat-trend.steady { color: var(--vx-gray-400); }
+
+/* ------------------------------ BADGES ----------------------------------- */
+.vx-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: .125rem .625rem; border-radius: var(--vx-radius-sm);
+    font-family: var(--vx-font-sans); font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .05em; min-width: 52px;
+    border: 1px solid transparent; line-height: 1.4;
+}
+.vx-badge-success, .vx-badge-live   { background: var(--vx-success-500); color: #fff; }
+.vx-badge-danger,  .vx-badge-cancel { background: var(--vx-danger-500);  color: #fff; }
+.vx-badge-info,    .vx-badge-billed { background: var(--vx-info-500);    color: #fff; }
+.vx-badge-warning  { background: var(--vx-warning-50); color: var(--vx-warning-700); border-color: var(--vx-warning-100); }
+.vx-badge-neutral, .vx-badge-pending { background: var(--vx-gray-100); color: var(--vx-gray-600); border-color: var(--vx-gray-200); }
+.vx-badge-outline-success { background: var(--vx-success-50); color: var(--vx-success-700); border-color: var(--vx-success-100); }
+.vx-badge-outline-danger  { background: var(--vx-danger-50);  color: var(--vx-danger-700);  border-color: var(--vx-danger-100); }
+.vx-badge-outline-info    { background: var(--vx-info-50);    color: var(--vx-info-700);    border-color: var(--vx-info-100); }
+
+/* ------------------------------ TABLE ------------------------------------ */
+.vx-table { width: 100%; font-size: 13px; text-align: left; border-collapse: collapse; }
+.vx-table thead th {
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em;
+    color: var(--vx-gray-500); background: var(--vx-bg-soft);
+    border-bottom: 1px solid var(--vx-gray-200); padding: 8px 12px;
+}
+.vx-table tbody td { border-bottom: 1px solid var(--vx-gray-100); color: var(--vx-gray-700); padding: 8px 12px; }
+.vx-table tbody tr:hover { background: var(--vx-primary-100); }
+.vx-table .vx-col-amount { text-align: right; font-family: var(--vx-font-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+.vx-table .vx-col-link { color: var(--vx-primary-600); font-weight: 500; cursor: pointer; }
+.vx-table .vx-col-link:hover { color: var(--vx-primary-700); text-decoration: underline; }
+@media (min-width: 640px) {
+    .vx-table thead th, .vx-table tbody td { padding: 12px 16px; }
+}
+
+/* ------------------------------ FORMS ------------------------------------ */
+.vx-label { display: block; font-size: 13px; font-weight: 600; color: var(--vx-gray-700); margin-bottom: .25rem; }
+.vx-label .vx-required { color: var(--vx-danger-500); margin-left: .125rem; }
+
+.vx-input, .vx-textarea, .vx-select {
+    display: block; width: 100%; border-radius: var(--vx-radius);
+    border: 1px solid var(--vx-gray-300); background: var(--vx-surface); padding: .5rem .75rem;
+    font-family: var(--vx-font-sans); font-size: 14px; color: var(--vx-gray-900);
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+.vx-input::placeholder, .vx-textarea::placeholder { color: var(--vx-gray-400); }
+.vx-input:focus, .vx-textarea:focus, .vx-select:focus {
+    outline: none; border-color: var(--vx-primary-500); box-shadow: 0 0 0 3px var(--vx-ring);
+}
+.vx-input:disabled, .vx-textarea:disabled, .vx-select:disabled {
+    background: var(--vx-gray-100); color: var(--vx-gray-500); cursor: not-allowed;
+}
+.vx-input.is-error, .vx-textarea.is-error, .vx-select.is-error { border-color: var(--vx-danger-500); }
+.vx-input.is-error:focus { box-shadow: 0 0 0 3px rgba(239,68,68,.2); }
+.vx-input-sm { padding: .375rem .75rem; font-size: 13px; }
+.vx-textarea { min-height: 88px; resize: vertical; }
+.vx-select {
+    appearance: none; -webkit-appearance: none; padding-right: 2.5rem;
+    background-repeat: no-repeat; background-position: right .5rem center; background-size: 1.5em 1.5em;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+}
+.vx-field-error { font-size: 12px; color: var(--vx-danger-600); margin-top: .25rem; }
+
+/* ------------------------------ ALERT ------------------------------------ */
+.vx-alert { padding: 1rem; border-radius: var(--vx-radius-lg); border-left: 3px solid var(--vx-gray-300); background: var(--vx-gray-50); }
+.vx-alert-warning { background: var(--vx-warning-50); border-color: var(--vx-warning-500); }
+.vx-alert-info    { background: var(--vx-info-50);    border-color: var(--vx-info-500); }
+.vx-alert-success { background: var(--vx-success-50); border-color: var(--vx-success-500); }
+.vx-alert-danger  { background: var(--vx-danger-50);  border-color: var(--vx-danger-500); }
+
+/* ------------------------------ SECTION DIVIDER -------------------------- */
+.vx-section-divider { display: flex; align-items: center; gap: .75rem; margin: .5rem 0 1.25rem; }
+.vx-section-divider-text { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--vx-section); white-space: nowrap; }
+.vx-section-divider-line { flex: 1; border-top: 1px solid var(--vx-gray-200); }
+
+/* ------------------------------ DROPDOWN --------------------------------- */
+.vx-dropdown { position: relative; display: inline-block; }
+.vx-dropdown-menu {
+    position: absolute; left: 0; top: 100%; margin-top: .5rem; min-width: 220px;
+    background: var(--vx-surface); border: 1px solid var(--vx-gray-200); border-radius: var(--vx-radius-lg);
+    padding: .375rem 0; box-shadow: var(--vx-shadow-dropdown); z-index: 85;
+    max-height: 70vh; overflow-y: auto;
+}
+.vx-dropdown-menu[hidden] { display: none; }
+.vx-dropdown-menu.vx-align-right { left: auto; right: 0; }
+.vx-dropdown-item {
+    display: flex; align-items: center; gap: .625rem; padding: .5rem 1rem;
+    font-size: 13px; color: var(--vx-gray-700); cursor: pointer; text-decoration: none;
+    transition: background-color .1s ease, color .1s ease;
+}
+.vx-dropdown-item:hover { background: var(--vx-gray-100); color: var(--vx-accent); }
+.vx-dropdown-heading { padding: .375rem 1rem; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--vx-gray-400); }
+.vx-dropdown-divider { border-top: 1px solid var(--vx-gray-100); margin: .25rem 0; }
+
+/* ------------------------------ TABS ------------------------------------- */
+.vx-tabs { display: inline-flex; align-items: center; gap: .25rem; border-bottom: 1px solid var(--vx-gray-200); }
+.vx-tab {
+    display: inline-flex; align-items: center; gap: .375rem; padding: .625rem 1rem;
+    font-size: 14px; font-weight: 500; color: var(--vx-gray-500);
+    border-bottom: 2px solid transparent; cursor: pointer; background: none; border-top: 0; border-left: 0; border-right: 0;
+    transition: color .15s ease, border-color .15s ease;
+}
+.vx-tab:hover { color: var(--vx-gray-900); }
+.vx-tab.is-active { color: var(--vx-accent); border-bottom-color: var(--vx-accent); font-weight: 600; }
+
+/* ------------------------------ MODAL ------------------------------------ */
+.vx-modal-backdrop {
+    position: fixed; inset: 0; background: var(--vx-overlay); backdrop-filter: blur(2px);
+    display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 100;
+}
+.vx-modal-backdrop[hidden] { display: none; }
+.vx-modal {
+    background: var(--vx-surface); border-radius: var(--vx-radius-xl); box-shadow: var(--vx-shadow-modal);
+    width: 100%; max-width: 520px; max-height: 90vh; overflow: auto;
+}
+.vx-modal-header { padding: 1.25rem; border-bottom: 1px solid var(--vx-gray-100); font-weight: 700; font-size: 16px; color: var(--vx-gray-900); display: flex; align-items: center; justify-content: space-between; }
+.vx-modal-body   { padding: 1.25rem; }
+.vx-modal-footer { padding: 1rem 1.25rem; border-top: 1px solid var(--vx-gray-100); display: flex; justify-content: flex-end; gap: .5rem; }
+
+/* ------------------------------ AVATAR ----------------------------------- */
+.vx-avatar {
+    display: inline-grid; place-items: center; border-radius: var(--vx-radius-full);
+    background: var(--vx-primary-600); color: #fff; font-family: var(--vx-font-sans);
+    font-weight: 700; width: 2.25rem; height: 2.25rem; font-size: 13px; overflow: hidden;
+}
+.vx-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.vx-avatar-sm { width: 1.75rem; height: 1.75rem; font-size: 11px; }
+.vx-avatar-lg { width: 3rem; height: 3rem; font-size: 16px; }
+
+/* ------------------------------ SKELETON --------------------------------- */
+.vx-skeleton {
+    background: linear-gradient(90deg, var(--vx-gray-100), var(--vx-gray-200), var(--vx-gray-100));
+    background-size: 200% 100%; animation: vx-shimmer 1.4s ease-in-out infinite;
+    border-radius: var(--vx-radius); height: 1rem;
+}
+@keyframes vx-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* ------------------------------ EMPTY STATE ------------------------------ */
+.vx-empty { text-align: center; padding: 3rem 1.5rem; color: var(--vx-gray-500); }
+.vx-empty-icon { width: 3rem; height: 3rem; margin: 0 auto 1rem; color: var(--vx-gray-300); }
+.vx-empty-title { font-weight: 700; font-family: var(--vx-font-sans); color: var(--vx-gray-700); font-size: 15px; }
+.vx-empty-text { font-size: 13px; margin-top: .375rem; }
+
+/* ------------------------------ BREADCRUMB ------------------------------- */
+.vx-breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: 13px; color: var(--vx-gray-500); }
+.vx-breadcrumb a { color: var(--vx-gray-500); text-decoration: none; }
+.vx-breadcrumb a:hover { color: var(--vx-primary-600); }
+.vx-breadcrumb .vx-sep { color: var(--vx-gray-300); }
+.vx-breadcrumb .vx-current { color: var(--vx-gray-900); font-weight: 600; }
+
+/* ------------------------------ PAGINATION ------------------------------- */
+.vx-pagination { display: inline-flex; align-items: center; gap: .25rem; }
+.vx-page {
+    display: inline-flex; align-items: center; justify-content: center; min-width: 2rem; height: 2rem;
+    padding: 0 .5rem; border-radius: var(--vx-radius); border: 1px solid var(--vx-gray-200);
+    background: var(--vx-surface); color: var(--vx-gray-700); font-size: 13px; cursor: pointer; text-decoration: none;
+}
+.vx-page:hover { background: var(--vx-gray-50); }
+.vx-page.is-active { background: var(--vx-accent); color: #fff; border-color: var(--vx-accent); }
+.vx-page.is-disabled { opacity: .5; pointer-events: none; }
+
+/* ------------------------------ TOAST ------------------------------------ */
+.vx-toast-host { position: fixed; top: 1rem; right: 1rem; z-index: 120; display: flex; flex-direction: column; gap: .5rem; }
+.vx-toast {
+    min-width: 240px; max-width: 360px; padding: .75rem 1rem; border-radius: var(--vx-radius-lg);
+    background: var(--vx-surface); border: 1px solid var(--vx-gray-200); box-shadow: var(--vx-shadow-dropdown);
+    font-size: 13px; color: var(--vx-gray-800); border-left: 3px solid var(--vx-gray-300);
+    animation: vx-toast-in .2s ease-out;
+}
+.vx-toast.success { border-left-color: var(--vx-success-500); }
+.vx-toast.error   { border-left-color: var(--vx-danger-500); }
+.vx-toast.info    { border-left-color: var(--vx-info-500); }
+.vx-toast.warning { border-left-color: var(--vx-warning-500); }
+@keyframes vx-toast-in { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+
+/* ------------------------------ TOOLTIP ---------------------------------- */
+/* Pure-CSS: wrap a trigger, add a bubble. Shows on hover/keyboard focus. */
+.vx-tooltip { position: relative; display: inline-flex; }
+.vx-tooltip-bubble {
+    position: absolute; bottom: calc(100% + .5rem); left: 50%; transform: translateX(-50%) translateY(.25rem);
+    background: var(--vx-gray-900); color: var(--vx-surface); font-size: 12px; line-height: 1.3;
+    padding: .375rem .625rem; border-radius: var(--vx-radius); white-space: nowrap; z-index: 90;
+    box-shadow: var(--vx-shadow-dropdown); opacity: 0; pointer-events: none;
+    transition: opacity .15s ease, transform .15s ease;
+}
+.vx-tooltip-bubble::after {
+    content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    border: 5px solid transparent; border-top-color: var(--vx-gray-900);
+}
+.vx-tooltip:hover .vx-tooltip-bubble, .vx-tooltip:focus-within .vx-tooltip-bubble { opacity: 1; transform: translateX(-50%) translateY(0); }
+.vx-tooltip-bubble.vx-tooltip-bottom { bottom: auto; top: calc(100% + .5rem); }
+.vx-tooltip-bubble.vx-tooltip-bottom::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--vx-gray-900); }
+
+/* ------------------------------ SWITCH ----------------------------------- */
+.vx-switch { display: inline-flex; align-items: center; gap: .5rem; cursor: pointer; font-size: 14px; color: var(--vx-gray-700); }
+.vx-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+.vx-switch-track {
+    position: relative; width: 2.25rem; height: 1.25rem; flex: none; border-radius: var(--vx-radius-full);
+    background: var(--vx-gray-300); transition: background-color .15s ease;
+}
+.vx-switch-track::after {
+    content: ''; position: absolute; top: 2px; left: 2px; width: 1rem; height: 1rem;
+    border-radius: var(--vx-radius-full); background: #fff; box-shadow: var(--vx-shadow-sm); transition: transform .15s ease;
+}
+.vx-switch input:checked + .vx-switch-track { background: var(--vx-accent); }
+.vx-switch input:checked + .vx-switch-track::after { transform: translateX(1rem); }
+.vx-switch input:focus-visible + .vx-switch-track { box-shadow: 0 0 0 3px var(--vx-ring); }
+.vx-switch input:disabled + .vx-switch-track { opacity: .5; cursor: not-allowed; }
+
+/* ------------------------------ CHECKBOX / RADIO ------------------------- */
+.vx-check { display: inline-flex; align-items: center; gap: .5rem; cursor: pointer; font-size: 14px; color: var(--vx-gray-700); }
+.vx-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+.vx-check-box {
+    position: relative; width: 1.1rem; height: 1.1rem; flex: none; background: var(--vx-surface);
+    border: 1px solid var(--vx-gray-300); border-radius: var(--vx-radius-sm); transition: background-color .15s ease, border-color .15s ease;
+}
+.vx-check-radio .vx-check-box { border-radius: var(--vx-radius-full); }
+.vx-check input:checked + .vx-check-box { background: var(--vx-accent); border-color: var(--vx-accent); }
+.vx-check input:checked + .vx-check-box::after {
+    content: ''; position: absolute; left: 5px; top: 2px; width: 4px; height: 8px;
+    border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.vx-check-radio input:checked + .vx-check-box::after {
+    left: 50%; top: 50%; width: .5rem; height: .5rem; border: 0; border-radius: var(--vx-radius-full);
+    background: #fff; transform: translate(-50%, -50%);
+}
+.vx-check input:focus-visible + .vx-check-box { box-shadow: 0 0 0 3px var(--vx-ring); }
+.vx-check input:disabled + .vx-check-box { opacity: .5; cursor: not-allowed; }
+
+/* ------------------------------ SPINNER ---------------------------------- */
+.vx-spinner {
+    display: inline-block; width: 1.25rem; height: 1.25rem; border-radius: var(--vx-radius-full);
+    border: 2px solid var(--vx-gray-200); border-top-color: var(--vx-accent);
+    animation: vx-spin .6s linear infinite; vertical-align: -.2em;
+}
+.vx-spinner-sm { width: 1rem; height: 1rem; border-width: 2px; }
+.vx-spinner-lg { width: 2rem; height: 2rem; border-width: 3px; }
+.vx-spinner-on-accent { border-color: rgba(255,255,255,.35); border-top-color: #fff; }
+@keyframes vx-spin { to { transform: rotate(360deg); } }
+
+/* ------------------------------ CHIP / TAG ------------------------------- */
+.vx-chip {
+    display: inline-flex; align-items: center; gap: .375rem; padding: .1875rem .625rem;
+    background: var(--vx-gray-100); color: var(--vx-gray-700); border: 1px solid var(--vx-gray-200);
+    border-radius: var(--vx-radius-full); font-size: 12px; font-weight: 500; line-height: 1.4; white-space: nowrap;
+}
+.vx-chip-primary { background: var(--vx-primary-50); color: var(--vx-primary-700); border-color: var(--vx-primary-100); }
+.vx-chip-success { background: var(--vx-success-50); color: var(--vx-success-700); border-color: var(--vx-success-100); }
+.vx-chip-danger  { background: var(--vx-danger-50);  color: var(--vx-danger-700);  border-color: var(--vx-danger-100); }
+.vx-chip-warning { background: var(--vx-warning-50); color: var(--vx-warning-700); border-color: var(--vx-warning-100); }
+.vx-chip-remove {
+    display: inline-flex; align-items: center; justify-content: center; width: 1rem; height: 1rem;
+    margin-right: -.25rem; border: 0; background: none; color: inherit; cursor: pointer; opacity: .6;
+    border-radius: var(--vx-radius-full); font-size: 14px; line-height: 1;
+}
+.vx-chip-remove:hover { opacity: 1; background: rgba(0,0,0,.08); }
+
+/* ------------------------------ ACCORDION -------------------------------- */
+.vx-accordion { border: 1px solid var(--vx-gray-200); border-radius: var(--vx-radius-lg); overflow: hidden; background: var(--vx-surface); }
+.vx-accordion-item + .vx-accordion-item { border-top: 1px solid var(--vx-gray-200); }
+.vx-accordion-header {
+    display: flex; align-items: center; justify-content: space-between; gap: .75rem; width: 100%;
+    padding: .875rem 1rem; background: none; border: 0; cursor: pointer; text-align: left;
+    font-family: var(--vx-font-sans); font-size: 14px; font-weight: 600; color: var(--vx-gray-900);
+}
+.vx-accordion-header:hover { background: var(--vx-bg-soft); }
+.vx-accordion-header::after {
+    content: ''; width: .5rem; height: .5rem; flex: none; border: solid var(--vx-gray-400);
+    border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform .2s ease; margin-top: -.25rem;
+}
+.vx-accordion-item.is-open > .vx-accordion-header::after { transform: rotate(-135deg); margin-top: .125rem; }
+.vx-accordion-body { padding: 0 1rem 1rem; font-size: 14px; color: var(--vx-gray-700); }
+.vx-accordion-item:not(.is-open) > .vx-accordion-body { display: none; }
+
+/* ------------------------------ PROGRESS --------------------------------- */
+.vx-progress { width: 100%; height: .5rem; background: var(--vx-gray-200); border-radius: var(--vx-radius-full); overflow: hidden; }
+.vx-progress-bar { height: 100%; width: 0; background: var(--vx-accent); border-radius: inherit; transition: width .3s ease; }
+.vx-progress-bar.success { background: var(--vx-success-500); }
+.vx-progress-bar.warning { background: var(--vx-warning-500); }
+.vx-progress-bar.danger  { background: var(--vx-danger-500); }
+.vx-progress.vx-progress-indeterminate .vx-progress-bar {
+    width: 40%; border-radius: var(--vx-radius-full); animation: vx-progress-slide 1.2s ease-in-out infinite;
+}
+@keyframes vx-progress-slide { 0% { margin-left: -40%; } 100% { margin-left: 100%; } }
+
+/* ------------------------------ DRAWER ----------------------------------- */
+.vx-drawer-backdrop {
+    position: fixed; inset: 0; background: var(--vx-overlay); backdrop-filter: blur(2px);
+    display: flex; z-index: 100;
+}
+.vx-drawer-backdrop[hidden] { display: none; }
+.vx-drawer {
+    margin-left: auto; height: 100%; width: 100%; max-width: 380px; background: var(--vx-surface);
+    box-shadow: var(--vx-shadow-modal); display: flex; flex-direction: column;
+    animation: vx-drawer-in .22s ease-out;
+}
+.vx-drawer-left { margin-left: 0; margin-right: auto; animation-name: vx-drawer-in-left; }
+.vx-drawer-header { padding: 1.25rem; border-bottom: 1px solid var(--vx-gray-100); font-weight: 700; font-size: 16px; color: var(--vx-gray-900); display: flex; align-items: center; justify-content: space-between; }
+.vx-drawer-body { padding: 1.25rem; overflow-y: auto; flex: 1; color: var(--vx-gray-700); }
+.vx-drawer-footer { padding: 1rem 1.25rem; border-top: 1px solid var(--vx-gray-100); display: flex; justify-content: flex-end; gap: .5rem; }
+@keyframes vx-drawer-in { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes vx-drawer-in-left { from { transform: translateX(-100%); } to { transform: none; } }
+
+/* ------------------------------ POPOVER ---------------------------------- */
+.vx-popover { position: relative; display: inline-block; }
+.vx-popover-panel {
+    position: absolute; left: 0; top: calc(100% + .5rem); min-width: 240px; max-width: 320px;
+    background: var(--vx-surface); border: 1px solid var(--vx-gray-200); border-radius: var(--vx-radius-lg);
+    padding: 1rem; box-shadow: var(--vx-shadow-dropdown); z-index: 88; color: var(--vx-gray-700); font-size: 13px;
+}
+.vx-popover-panel[hidden] { display: none; }
+.vx-popover-panel.vx-align-right { left: auto; right: 0; }
+
+/* ------------------------------ SEGMENTED CONTROL ------------------------ */
+.vx-segmented { display: inline-flex; padding: .1875rem; background: var(--vx-gray-100); border-radius: var(--vx-radius-lg); gap: .1875rem; }
+.vx-segment {
+    display: inline-flex; align-items: center; justify-content: center; gap: .375rem; padding: .375rem .875rem;
+    border: 0; background: none; border-radius: var(--vx-radius); cursor: pointer;
+    font-family: var(--vx-font-sans); font-size: 13px; font-weight: 500; color: var(--vx-gray-600); white-space: nowrap;
+    transition: background-color .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.vx-segment:hover { color: var(--vx-gray-900); }
+.vx-segment.is-active { background: var(--vx-surface); color: var(--vx-accent); font-weight: 600; box-shadow: var(--vx-shadow-sm); }
+
+/* ------------------------------ STEPPER ---------------------------------- */
+.vx-stepper { display: flex; align-items: flex-start; }
+.vx-step { display: flex; flex-direction: column; align-items: center; flex: 1; text-align: center; position: relative; }
+.vx-step:not(:last-child)::after {
+    content: ''; position: absolute; top: .875rem; left: 50%; width: 100%; height: 2px;
+    background: var(--vx-gray-200); z-index: 0;
+}
+.vx-step.is-complete:not(:last-child)::after { background: var(--vx-accent); }
+.vx-step-marker {
+    position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center;
+    width: 1.75rem; height: 1.75rem; border-radius: var(--vx-radius-full);
+    background: var(--vx-surface); border: 2px solid var(--vx-gray-300); color: var(--vx-gray-500);
+    font-size: 12px; font-weight: 700;
+}
+.vx-step.is-active .vx-step-marker { border-color: var(--vx-accent); color: var(--vx-accent); }
+.vx-step.is-complete .vx-step-marker { background: var(--vx-accent); border-color: var(--vx-accent); color: #fff; }
+.vx-step-label { margin-top: .5rem; font-size: 12px; font-weight: 500; color: var(--vx-gray-600); }
+.vx-step.is-active .vx-step-label { color: var(--vx-gray-900); font-weight: 600; }
+
+/* ------------------------------ RANGE / SLIDER --------------------------- */
+.vx-range { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: var(--vx-radius-full); background: var(--vx-gray-200); outline: none; }
+.vx-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: var(--vx-radius-full); background: var(--vx-accent); cursor: pointer; box-shadow: var(--vx-shadow-sm); border: 2px solid var(--vx-surface); }
+.vx-range::-moz-range-thumb { width: 16px; height: 16px; border: 2px solid var(--vx-surface); border-radius: var(--vx-radius-full); background: var(--vx-accent); cursor: pointer; }
+.vx-range:focus-visible { box-shadow: 0 0 0 3px var(--vx-ring); }
+.vx-range:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ------------------------------ FILE UPLOAD ------------------------------ */
+.vx-file { display: block; position: relative; }
+.vx-file input[type="file"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.vx-file-drop {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .375rem;
+    padding: 1.5rem 1rem; border: 2px dashed var(--vx-gray-300); border-radius: var(--vx-radius-lg);
+    background: var(--vx-bg-soft); color: var(--vx-gray-500); cursor: pointer; text-align: center; font-size: 13px;
+    transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+.vx-file-drop:hover, .vx-file-drop.is-dragover { border-color: var(--vx-accent); background: var(--vx-surface); color: var(--vx-gray-700); }
+.vx-file-drop strong { color: var(--vx-primary-600); font-weight: 600; }
+
+/* ------------------------------ INPUT GROUP / ADDON ---------------------- */
+.vx-input-group { display: flex; align-items: stretch; }
+.vx-input-group > .vx-input, .vx-input-group > .vx-select { border-radius: 0; }
+.vx-input-group > :first-child { border-top-left-radius: var(--vx-radius); border-bottom-left-radius: var(--vx-radius); }
+.vx-input-group > :last-child { border-top-right-radius: var(--vx-radius); border-bottom-right-radius: var(--vx-radius); }
+.vx-input-group > * + * { margin-left: -1px; }
+.vx-input-group .vx-input:focus, .vx-input-group .vx-select:focus { position: relative; z-index: 2; }
+.vx-input-addon {
+    display: inline-flex; align-items: center; white-space: nowrap; padding: .5rem .75rem;
+    background: var(--vx-bg-soft); border: 1px solid var(--vx-gray-300); color: var(--vx-gray-600); font-size: 14px;
+}
+
+/* ------------------------------ COMBOBOX / AUTOCOMPLETE ------------------ */
+.vx-combobox { position: relative; }
+.vx-combobox-menu {
+    position: absolute; top: 100%; left: 0; right: 0; margin-top: .25rem; z-index: 86;
+    background: var(--vx-surface); border: 1px solid var(--vx-gray-200); border-radius: var(--vx-radius-lg);
+    box-shadow: var(--vx-shadow-dropdown); max-height: 16rem; overflow-y: auto; padding: .25rem 0;
+}
+.vx-combobox-menu[hidden] { display: none; }
+.vx-combobox-option { padding: .5rem .75rem; font-size: 14px; color: var(--vx-gray-700); cursor: pointer; }
+.vx-combobox-option:hover, .vx-combobox-option.is-active { background: var(--vx-gray-100); color: var(--vx-accent); }
+.vx-combobox-option.is-selected { font-weight: 600; color: var(--vx-accent); }
+.vx-combobox-empty { padding: .5rem .75rem; font-size: 13px; color: var(--vx-gray-400); }
+
+/* ------------------------------ MULTISELECT ------------------------------ */
+.vx-multiselect { position: relative; }
+.vx-multiselect-control {
+    display: flex; flex-wrap: wrap; gap: .375rem; align-items: center; min-height: 2.4rem;
+    padding: .3rem .5rem; background: var(--vx-surface); border: 1px solid var(--vx-gray-300);
+    border-radius: var(--vx-radius); cursor: text;
+}
+.vx-multiselect-control:focus-within { border-color: var(--vx-primary-500); box-shadow: 0 0 0 3px var(--vx-ring); }
+.vx-multiselect-input { flex: 1; min-width: 6rem; border: 0; outline: none; background: none; font-size: 14px; color: var(--vx-gray-900); padding: .15rem; }
+.vx-multiselect-input::placeholder { color: var(--vx-gray-400); }
+
+/* ------------------------------ DATEPICKER / CALENDAR -------------------- */
+.vx-datepicker { position: relative; }
+.vx-calendar {
+    position: absolute; top: 100%; left: 0; margin-top: .25rem; width: 17rem; z-index: 87;
+    background: var(--vx-surface); border: 1px solid var(--vx-gray-200); border-radius: var(--vx-radius-lg);
+    box-shadow: var(--vx-shadow-dropdown); padding: .75rem;
+}
+.vx-calendar[hidden] { display: none; }
+.vx-calendar-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: .5rem; }
+.vx-calendar-title { font-size: 13px; font-weight: 600; color: var(--vx-gray-900); }
+.vx-calendar-nav { border: 0; background: none; cursor: pointer; color: var(--vx-gray-500); padding: .25rem .5rem; border-radius: var(--vx-radius); font-size: 15px; line-height: 1; }
+.vx-calendar-nav:hover { background: var(--vx-gray-100); color: var(--vx-gray-900); }
+.vx-calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.vx-calendar-dow { text-align: center; font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--vx-gray-400); padding: .25rem 0; }
+.vx-calendar-day { display: inline-flex; align-items: center; justify-content: center; height: 2rem; border: 0; background: none; border-radius: var(--vx-radius); font-size: 13px; color: var(--vx-gray-700); cursor: pointer; }
+.vx-calendar-day:hover { background: var(--vx-gray-100); }
+.vx-calendar-day.is-outside { color: var(--vx-gray-300); }
+.vx-calendar-day.is-today { font-weight: 700; color: var(--vx-accent); }
+.vx-calendar-day.is-selected, .vx-calendar-day.is-selected:hover { background: var(--vx-accent); color: #fff; }
+
+/* ------------------------------ TIMELINE --------------------------------- */
+.vx-timeline { position: relative; padding-left: 1.5rem; }
+.vx-timeline-item { position: relative; padding-bottom: 1.25rem; }
+.vx-timeline-item::before {
+    content: ''; position: absolute; left: -1.5rem; top: .3rem; width: .625rem; height: .625rem;
+    border-radius: var(--vx-radius-full); background: var(--vx-accent); box-shadow: 0 0 0 3px var(--vx-surface); z-index: 1;
+}
+.vx-timeline-item::after { content: ''; position: absolute; left: calc(-1.5rem + .28rem); top: .9rem; bottom: -.2rem; width: 2px; background: var(--vx-gray-200); }
+.vx-timeline-item:last-child::after { display: none; }
+.vx-timeline-item.success::before { background: var(--vx-success-500); }
+.vx-timeline-item.danger::before  { background: var(--vx-danger-500); }
+.vx-timeline-item.warning::before { background: var(--vx-warning-500); }
+.vx-timeline-time { font-size: 11px; color: var(--vx-gray-400); }
+.vx-timeline-title { font-size: 14px; font-weight: 600; color: var(--vx-gray-900); }
+.vx-timeline-text { font-size: 13px; color: var(--vx-gray-600); margin-top: .125rem; }
+
+/* ------------------------------ LIST ------------------------------------- */
+.vx-list { display: flex; flex-direction: column; background: var(--vx-surface); border: 1px solid var(--vx-gray-200); border-radius: var(--vx-radius-lg); overflow: hidden; }
+.vx-list-item { display: flex; align-items: center; gap: .75rem; padding: .75rem 1rem; font-size: 14px; color: var(--vx-gray-700); text-decoration: none; }
+.vx-list-item + .vx-list-item { border-top: 1px solid var(--vx-gray-100); }
+a.vx-list-item, .vx-list-item.is-clickable { cursor: pointer; transition: background-color .12s ease; }
+a.vx-list-item:hover, .vx-list-item.is-clickable:hover { background: var(--vx-bg-soft); }
+.vx-list-item-title { font-weight: 600; color: var(--vx-gray-900); }
+.vx-list-item-meta { margin-left: auto; font-size: 12px; color: var(--vx-gray-400); }
+
+/* ------------------------------ AVATAR GROUP ----------------------------- */
+.vx-avatar-group { display: inline-flex; }
+.vx-avatar-group .vx-avatar { border: 2px solid var(--vx-surface); }
+.vx-avatar-group .vx-avatar + .vx-avatar { margin-left: -.6rem; }
+
+/* ------------------------------ CARD VARIANTS ---------------------------- */
+.vx-card-outlined { box-shadow: none; }
+.vx-card-interactive { cursor: pointer; transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease; }
+.vx-card-interactive:hover { box-shadow: var(--vx-shadow-dropdown); border-color: var(--vx-gray-300); transform: translateY(-1px); }
+
+/* ---------------------- DARK-MODE FINE TUNING ---------------------------- */
+/* The primary-100 row hover reads too bright on dark; fall back to a neutral. */
+[data-vx-theme="dark"] .vx-table tbody tr:hover,
+.vx-dark .vx-table tbody tr:hover { background: var(--vx-gray-100); }
+
+/* ==== layout.css ==== */
+/* ============================================================================
+   Vinix UI — App Shell / Layout
+   The DealSync360 chrome: fixed navy header, horizontal nav tabs, quick panel,
+   bottom status bar. Use these to give every product the same skeleton.
+   ============================================================================ */
+
+/* --- Page scaffold --- */
+.vx-app { min-height: 100vh; background: var(--vx-bg); }
+.vx-app-content {
+    padding-top: var(--vx-header-h);
+    padding-bottom: var(--vx-bottom-h);
+    min-height: 100vh;
+    background: var(--vx-bg);
+}
+
+/* --- Header bar (fixed, navy) --- */
+.vx-header-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--vx-header-h);
+    background: var(--vx-header); color: #fff; display: flex; align-items: center;
+    gap: 1rem; padding: 0 1rem; box-shadow: var(--vx-shadow-header);
+}
+.vx-header-bar a { color: inherit; text-decoration: none; }
+.vx-header-search {
+    flex: 1; max-width: 560px; display: flex; align-items: center; gap: .5rem;
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14);
+    border-radius: var(--vx-radius); padding: .375rem .75rem; color: #cbd5e1; font-size: 13px;
+}
+.vx-header-search input { flex: 1; background: transparent; border: 0; outline: none; color: #fff; font-size: 13px; }
+.vx-header-search input::placeholder { color: #94a3b8; }
+
+/* --- Horizontal nav tabs --- */
+.vx-nav { background: var(--vx-bg-soft); border-bottom: 1px solid var(--vx-gray-200); }
+.vx-nav-inner { display: flex; align-items: center; gap: .25rem; height: 2.75rem; padding: 0 1rem; overflow-x: auto; }
+.vx-nav-tab {
+    display: inline-flex; align-items: center; gap: .375rem; padding: .375rem .75rem;
+    border-radius: var(--vx-radius); font-size: 13px; font-weight: 500; white-space: nowrap;
+    color: var(--vx-gray-500); cursor: pointer; text-decoration: none;
+    transition: background-color .15s ease, color .15s ease;
+}
+.vx-nav-tab:hover { color: var(--vx-gray-700); background: var(--vx-gray-100); }
+.vx-nav-tab.is-active { background: var(--vx-accent); color: #fff; }
+
+/* --- Quick action bar (icon + label shortcuts) --- */
+.vx-quick-action {
+    display: inline-flex; flex-direction: column; align-items: center; gap: .25rem;
+    padding: .5rem 1.25rem; border-radius: var(--vx-radius-lg); color: var(--vx-gray-500);
+    cursor: pointer; text-decoration: none; transition: background-color .15s ease, color .15s ease;
+}
+.vx-quick-action:hover { background: var(--vx-gray-100); color: var(--vx-gray-700); }
+.vx-quick-action-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+
+/* --- Right quick panel --- */
+.vx-quick-panel { width: 288px; border-left: 1px solid var(--vx-gray-200); background: var(--vx-surface); overflow-y: auto; }
+.vx-quick-panel-title { font-size: 14px; font-weight: 700; color: var(--vx-gray-900); display: flex; align-items: center; gap: .5rem; }
+.vx-quick-panel-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--vx-gray-400); margin: 1.25rem 0 .5rem; }
+
+/* --- Bottom status bar --- */
+.vx-bottom-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 40; height: var(--vx-bottom-h);
+    background: var(--vx-surface); border-top: 1px solid var(--vx-gray-200); display: flex; align-items: center;
+    gap: 1rem; padding: 0 .75rem; font-size: 11px; color: var(--vx-gray-500);
+    box-shadow: 0 -1px 3px rgba(0,0,0,.05);
+}
+
+/* --- Container --- */
+.vx-container { width: 100%; max-width: 88rem; margin: 0 auto; padding: 1.25rem; }
+
+/* --- Mobile nav / panel toggle (hamburger) --- */
+.vx-nav-toggle {
+    display: none; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem;
+    border: 0; background: none; color: inherit; cursor: pointer; border-radius: var(--vx-radius);
+}
+.vx-nav-toggle:hover { background: rgba(255,255,255,.12); }
+.vx-nav-toggle svg, .vx-nav-toggle span.vx-nav-toggle-bar { pointer-events: none; }
+
+/* --- Backdrop shared by off-canvas panels on small screens --- */
+.vx-shell-backdrop { position: fixed; inset: 0; background: var(--vx-overlay); z-index: 44; }
+.vx-shell-backdrop[hidden] { display: none; }
+
+/* --- Responsive: collapse the right quick panel into an off-canvas drawer --- */
+@media (max-width: 1024px) {
+    .vx-quick-panel {
+        position: fixed; top: var(--vx-header-h); right: 0; bottom: 0; width: 288px; max-width: 85vw;
+        transform: translateX(100%); transition: transform .22s ease; z-index: 45; box-shadow: var(--vx-shadow-modal);
+    }
+    .vx-quick-panel.is-open { transform: none; }
+}
+
+/* --- Responsive: tighten chrome on phones --- */
+@media (max-width: 640px) {
+    .vx-nav-toggle { display: inline-flex; }
+    .vx-header-search { display: none; }
+    .vx-container { padding: 1rem; }
+}

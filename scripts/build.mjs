@@ -30,4 +30,10 @@ const js = readFileSync(join(root, 'src', 'js', 'vinix-ui.js'), 'utf8')
 writeFileSync(join(dist, 'vinix-ui.css'), css + '\n');
 writeFileSync(join(dist, 'vinix-ui.js'), js);
 
-console.log(`Vinix UI v${version} built -> dist/vinix-ui.css (${css.length} bytes), dist/vinix-ui.js`);
+// Mirror the built files into docs/ so the GitHub Pages gallery (served from the
+// docs/ folder as site root) can load them with same-folder relative paths.
+const docs = join(root, 'docs');
+writeFileSync(join(docs, 'vinix-ui.css'), css + '\n');
+writeFileSync(join(docs, 'vinix-ui.js'), js);
+
+console.log(`Vinix UI v${version} built -> dist/ + docs/ (vinix-ui.css ${css.length} bytes, vinix-ui.js)`);
