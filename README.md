@@ -11,9 +11,9 @@ no framework required.
 
 ### npm (pure JS / HTML / bundlers)
 ```bash
-npm install @vinix/ui          # from registry
+npm install @vinix/ui          # from the npm registry
 # or pin a git tag:
-npm install "git+https://<repo>.git#v1.0.0"
+npm install "git+https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui.git#v1.1.1"
 ```
 ```html
 <link rel="stylesheet" href="node_modules/@vinix/ui/dist/vinix-ui.css">
@@ -80,4 +80,4 @@ node scripts/build.mjs   # rebuild dist/ after editing src/
 Versioning follows [semver](https://semver.org); consumers pin a version and are
 never affected by new releases until they update. See `CHANGELOG.md` and `CLAUDE.md`.
 
-© Vinix Infotech Pvt. Ltd. — proprietary.
+© Vinix Infotech Pvt. Ltd. — released under the [MIT License](LICENSE).

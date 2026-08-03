@@ -13,6 +13,14 @@ project adheres to [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ## [Unreleased]
 
+## [1.1.1] — 2026-08-03
+### Changed
+- **Relicensed under the MIT License** (was proprietary) — Vinix UI is now a public,
+  open-source package installable by anyone via npm (`@vinix/ui`) and Composer
+  (`vinix/ui`). No API or component changes.
+- npm package set to public access; added `repository` / `homepage` / `bugs`
+  metadata and MIT `license` fields (npm + Composer). Build banner updated to MIT.
+
 ## [1.1.0] — 2026-08-03
 ### Added
 - **Dark theme** — opt in with `<html data-vx-theme="dark">` or `class="vx-dark"`.

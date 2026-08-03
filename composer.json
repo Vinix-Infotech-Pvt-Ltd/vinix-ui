@@ -2,7 +2,8 @@
     "name": "vinix/ui",
     "description": "Vinix UI — shared design system & Blade component library for Laravel. One theme, every product.",
     "type": "library",
-    "license": "proprietary",
+    "license": "MIT",
+    "homepage": "https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui",
     "keywords": ["vinix", "ui", "design-system", "laravel", "blade", "components"],
     "authors": [
         { "name": "Vinix Infotech Pvt. Ltd." }

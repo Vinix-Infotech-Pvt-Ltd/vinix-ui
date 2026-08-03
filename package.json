@@ -1,9 +1,17 @@
 {
   "name": "@vinix/ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Vinix UI — shared design system & component library (CSS + vanilla JS + Laravel Blade). One theme, every product.",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": "Vinix Infotech Pvt. Ltd.",
+  "homepage": "https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vinix-Infotech-Pvt-Ltd/vinix-ui/issues"
+  },
   "main": "dist/vinix-ui.js",
   "style": "dist/vinix-ui.css",
   "exports": {
@@ -27,6 +35,6 @@
   "keywords": ["vinix", "ui", "design-system", "components", "css", "blade", "laravel", "saas"],
   "sideEffects": ["*.css"],
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   }
 }

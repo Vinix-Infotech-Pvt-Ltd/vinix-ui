@@ -16,7 +16,7 @@ const dist = join(root, 'dist');
 mkdirSync(dist, { recursive: true });
 
 const order = ['tokens.css', 'base.css', 'components.css', 'layout.css'];
-const banner = `/*! Vinix UI v${JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).version} | (c) Vinix Infotech | proprietary */\n`;
+const banner = `/*! Vinix UI v${JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).version} | (c) Vinix Infotech Pvt. Ltd. | MIT License */\n`;
 
 const css = banner + order
     .map((f) => `/* ==== ${f} ==== */\n` + readFileSync(join(cssDir, f), 'utf8').trim())
