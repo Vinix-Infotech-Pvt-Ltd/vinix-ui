@@ -13,6 +13,22 @@ project adheres to [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ## [Unreleased]
 
+## [1.3.0] — 2026-08-03
+### Added
+- **Navbar rebuilt as a faithful DealSync360 chrome** — a white header bar
+  (`.vx-navbar`: brand, search `.vx-navbar-search`, icon buttons `.vx-navbar-icon`
+  with a red `.vx-navbar-icon-dot`, actions `.vx-navbar-end`) **plus** an optional
+  light-gray menu bar (`.vx-navbar-menu` / `.vx-navbar-tab`) with navy active tabs
+  (`--vx-accent`) and dropdown submenus (reusing `.vx-dropdown-menu`). At ≤1024px
+  the menu bar + search collapse and the hamburger opens a slide-in drawer.
+- New Blade components: `<x-vx-navbar-menu>`, `<x-vx-navbar-tab>` (supports a
+  `menu` slot for a dropdown), `<x-vx-navbar-icon>` (with `dot`). `<x-vx-navbar>`
+  gained a `search` slot and a `drawer` prop (mobile-only nav for the two-row layout).
+
+### Changed
+- The `.vx-navbar` breakpoint moved from 900px to **1024px** to match the DealSync
+  layout; hamburger/search/icon styling refined to the reference.
+
 ## [1.2.0] — 2026-08-03
 ### Added
 - **Navbar component** — a reusable, responsive top bar (`.vx-navbar`) with brand,

@@ -445,7 +445,7 @@
         var __vxRz;
         on(global, 'resize', function () {
             clearTimeout(__vxRz);
-            __vxRz = setTimeout(function () { if (window.innerWidth > 900) closeAllNavbars(); }, 150);
+            __vxRz = setTimeout(function () { if (window.innerWidth > 1024) closeAllNavbars(); }, 150);
         });
     }
 
@@ -453,7 +453,7 @@
         init: init, toast: toast,
         openModal: openModal, closeModal: function (id) { closeModal(document.getElementById(id)); },
         openDrawer: openDrawer, closeDrawer: function (id) { closeDrawer(document.getElementById(id)); },
-        version: '1.2.0'
+        version: '1.3.0'
     };
     global.VinixUI = VinixUI;
     if (typeof module !== 'undefined' && module.exports) module.exports = VinixUI;

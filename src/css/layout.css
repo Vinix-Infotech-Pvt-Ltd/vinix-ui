@@ -94,17 +94,21 @@
 }
 
 /* ============================================================================
-   NAVBAR — reusable top bar with brand, links, search, actions, and a
-   responsive mobile slide-in menu. Token-driven (works in dark mode).
-   Wire the mobile menu with data-vx-navbar / data-vx-navbar-toggle (vinix-ui.js).
+   NAVBAR — faithful DealSync360 chrome: white header bar (row 1) + an optional
+   light-gray menu bar with tabs & dropdown submenus (row 2). Responsive: at
+   ≤1024px the menu bar + search hide and a hamburger opens a slide-in drawer.
+   Token-driven (dark-mode ready). Wire via data-vx-navbar / data-vx-navbar-toggle.
    ============================================================================ */
+
+/* --- Row 1: white header bar --- */
 .vx-navbar {
     position: sticky; top: 0; z-index: 50;
-    display: flex; align-items: center; gap: .75rem;
-    height: var(--vx-header-h); padding: 0 1rem;
+    display: flex; align-items: center; gap: .5rem;
+    height: var(--vx-header-h); padding: 0 .75rem;
     background: var(--vx-surface); color: var(--vx-gray-900);
     border-bottom: 1px solid var(--vx-gray-200); box-shadow: var(--vx-shadow-header);
 }
+@media (min-width: 640px) { .vx-navbar { gap: .75rem; padding: 0 1rem; } }
 .vx-navbar-fixed { position: fixed; top: 0; left: 0; right: 0; }
 
 .vx-navbar-brand {
@@ -112,16 +116,46 @@
     font-family: var(--vx-font-sans); font-weight: 700; font-size: 16px;
     color: var(--vx-gray-900); text-decoration: none; white-space: nowrap;
 }
-.vx-navbar-brand img { height: 1.75rem; width: auto; display: block; }
+.vx-navbar-brand img { height: 1.9rem; width: auto; display: block; }
 
+/* hamburger — DealSync rounded, gray-100 fill */
 .vx-navbar-toggle {
     display: none; align-items: center; justify-content: center; flex: none;
-    width: 2.5rem; height: 2.5rem; margin-left: -.25rem;
-    border: 0; background: none; color: var(--vx-gray-700); cursor: pointer; border-radius: var(--vx-radius);
+    width: 2.5rem; height: 2.5rem; border: 0; border-radius: var(--vx-radius-lg);
+    background: var(--vx-gray-100); color: var(--vx-gray-700); cursor: pointer;
+    transition: background-color .15s ease;
 }
-.vx-navbar-toggle:hover { background: var(--vx-gray-100); }
+.vx-navbar-toggle:hover { background: var(--vx-gray-200); }
 .vx-navbar-toggle svg { width: 1.5rem; height: 1.5rem; }
 
+/* search (center, grows) */
+.vx-navbar-search {
+    display: flex; align-items: center; gap: .5rem; flex: 1; max-width: 480px; margin: 0 .25rem;
+    background: var(--vx-gray-100); border: 1px solid var(--vx-gray-200); border-radius: var(--vx-radius-lg);
+    padding: .4rem .75rem; color: var(--vx-gray-400);
+    transition: background-color .15s ease, border-color .15s ease;
+}
+.vx-navbar-search:focus-within { background: var(--vx-surface); border-color: var(--vx-primary-400); box-shadow: 0 0 0 3px var(--vx-ring); }
+.vx-navbar-search svg { width: 1rem; height: 1rem; flex: none; }
+.vx-navbar-search input { flex: 1; border: 0; outline: none; background: transparent; font-size: 13px; color: var(--vx-gray-900); }
+.vx-navbar-search input::placeholder { color: var(--vx-gray-400); }
+
+/* right-side actions */
+.vx-navbar-end { display: flex; align-items: center; gap: .375rem; margin-left: auto; flex: none; }
+@media (min-width: 640px) { .vx-navbar-end { gap: .5rem; } }
+
+/* icon button (bell / help / settings) with optional notification dot */
+.vx-navbar-icon {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    width: 2.25rem; height: 2.25rem; border: 0; border-radius: var(--vx-radius-lg);
+    background: none; color: var(--vx-gray-600); cursor: pointer; text-decoration: none;
+    transition: background-color .15s ease, color .15s ease;
+}
+.vx-navbar-icon:hover { background: var(--vx-gray-100); color: var(--vx-gray-900); }
+.vx-navbar-icon svg { width: 1.25rem; height: 1.25rem; }
+.vx-navbar-icon-dot { position: absolute; top: .35rem; right: .35rem; width: .5rem; height: .5rem; border-radius: var(--vx-radius-full); background: var(--vx-danger-500); border: 2px solid var(--vx-surface); }
+
+/* inline nav links (also the mobile drawer container) */
 .vx-navbar-nav { display: flex; align-items: center; gap: .25rem; }
 .vx-navbar-link {
     display: inline-flex; align-items: center; gap: .375rem;
@@ -133,29 +167,40 @@
 .vx-navbar-link:hover { color: var(--vx-gray-900); background: var(--vx-gray-100); }
 .vx-navbar-link.is-active { background: var(--vx-accent); color: #fff; font-weight: 600; }
 
-.vx-navbar-search {
-    display: flex; align-items: center; gap: .5rem; flex: 1; max-width: 420px;
-    background: var(--vx-bg-soft); border: 1px solid var(--vx-gray-200);
-    border-radius: var(--vx-radius); padding: .375rem .625rem; color: var(--vx-gray-500);
+/* --- Row 2: menu bar (DealSync horizontal-nav) --- */
+.vx-navbar-menu { background: var(--vx-bg-soft); border-bottom: 1px solid var(--vx-gray-200); }
+.vx-navbar-menu-inner { display: flex; align-items: center; gap: .25rem; height: 2.75rem; padding: 0 1rem; overflow-x: auto; }
+.vx-navbar-menu-inner::-webkit-scrollbar { display: none; }
+.vx-navbar-tab {
+    display: inline-flex; align-items: center; gap: .375rem; padding: .375rem .75rem; border-radius: var(--vx-radius);
+    font-size: 13px; font-weight: 500; color: var(--vx-gray-500); white-space: nowrap; cursor: pointer;
+    background: none; border: 0; text-decoration: none; transition: background-color .15s ease, color .15s ease;
 }
-.vx-navbar-search input { flex: 1; border: 0; outline: none; background: transparent; font-size: 13px; color: var(--vx-gray-900); }
-.vx-navbar-search input::placeholder { color: var(--vx-gray-400); }
+.vx-navbar-tab:hover { color: var(--vx-gray-700); background: var(--vx-gray-100); }
+.vx-navbar-tab.is-active { background: var(--vx-accent); color: #fff; font-weight: 600; }
+.vx-navbar-tab svg { width: 1rem; height: 1rem; flex: none; }
+.vx-navbar-caret { width: .7rem; height: .7rem; opacity: .5; flex: none; }
+.vx-navbar-fybadge { font-size: 10px; font-weight: 700; background: var(--vx-accent); color: #fff; padding: .1rem .375rem; border-radius: var(--vx-radius-sm); }
 
-.vx-navbar-end { display: flex; align-items: center; gap: .5rem; margin-left: auto; flex: none; }
-
+/* mobile drawer backdrop */
 .vx-navbar-backdrop { position: fixed; inset: 0; top: var(--vx-header-h); background: var(--vx-overlay); z-index: 49; }
 .vx-navbar-backdrop[hidden] { display: none; }
 
-/* Collapse the links into a slide-in drawer on smaller screens. */
-@media (max-width: 900px) {
+/* When the primary links live in the row-2 menu bar, mark the header's nav
+   as mobile-only so it doesn't duplicate them on desktop (drawer on mobile). */
+@media (min-width: 1025px) { .vx-navbar-nav-mobile { display: none; } }
+
+/* --- Responsive: ≤1024px → hamburger + drawer; hide menu bar & search --- */
+@media (max-width: 1024px) {
     .vx-navbar-toggle { display: inline-flex; }
+    .vx-navbar-menu { display: none; }
     .vx-navbar-search { display: none; }
     .vx-navbar-nav {
-        position: fixed; top: var(--vx-header-h); left: 0; bottom: 0;
-        width: min(300px, 82vw); flex-direction: column; align-items: stretch; gap: .125rem;
-        padding: .75rem; overflow-y: auto; z-index: 60;
+        position: fixed; top: var(--vx-header-h); left: 0; bottom: 0; width: min(310px, 80vw);
+        flex-direction: column; align-items: stretch; gap: .125rem; padding: .75rem; overflow-y: auto; z-index: 60;
         background: var(--vx-surface); border-right: 1px solid var(--vx-gray-200); box-shadow: var(--vx-shadow-modal);
-        transform: translateX(-100%); transition: transform .22s ease;
+        border-bottom-right-radius: var(--vx-radius-xl);
+        transform: translateX(-100%); transition: transform .24s cubic-bezier(.4, 0, .2, 1);
     }
     .vx-navbar-nav.is-open { transform: none; }
     .vx-navbar-link { padding: .625rem .75rem; font-size: 15px; }
