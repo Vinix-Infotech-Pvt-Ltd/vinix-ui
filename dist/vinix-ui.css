@@ -1,4 +1,4 @@
-/*! Vinix UI v1.1.5 | (c) Vinix Infotech Pvt. Ltd. | MIT License */
+/*! Vinix UI v1.2.0 | (c) Vinix Infotech Pvt. Ltd. | MIT License */
 /* ==== tokens.css ==== */
 /* ============================================================================
    Vinix UI — Design Tokens
@@ -785,4 +785,72 @@ a.vx-list-item:hover, .vx-list-item.is-clickable:hover { background: var(--vx-bg
     .vx-nav-toggle { display: inline-flex; }
     .vx-header-search { display: none; }
     .vx-container { padding: 1rem; }
+}
+
+/* ============================================================================
+   NAVBAR — reusable top bar with brand, links, search, actions, and a
+   responsive mobile slide-in menu. Token-driven (works in dark mode).
+   Wire the mobile menu with data-vx-navbar / data-vx-navbar-toggle (vinix-ui.js).
+   ============================================================================ */
+.vx-navbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; gap: .75rem;
+    height: var(--vx-header-h); padding: 0 1rem;
+    background: var(--vx-surface); color: var(--vx-gray-900);
+    border-bottom: 1px solid var(--vx-gray-200); box-shadow: var(--vx-shadow-header);
+}
+.vx-navbar-fixed { position: fixed; top: 0; left: 0; right: 0; }
+
+.vx-navbar-brand {
+    display: inline-flex; align-items: center; gap: .5rem; flex: none;
+    font-family: var(--vx-font-sans); font-weight: 700; font-size: 16px;
+    color: var(--vx-gray-900); text-decoration: none; white-space: nowrap;
+}
+.vx-navbar-brand img { height: 1.75rem; width: auto; display: block; }
+
+.vx-navbar-toggle {
+    display: none; align-items: center; justify-content: center; flex: none;
+    width: 2.5rem; height: 2.5rem; margin-left: -.25rem;
+    border: 0; background: none; color: var(--vx-gray-700); cursor: pointer; border-radius: var(--vx-radius);
+}
+.vx-navbar-toggle:hover { background: var(--vx-gray-100); }
+.vx-navbar-toggle svg { width: 1.5rem; height: 1.5rem; }
+
+.vx-navbar-nav { display: flex; align-items: center; gap: .25rem; }
+.vx-navbar-link {
+    display: inline-flex; align-items: center; gap: .375rem;
+    padding: .375rem .75rem; border-radius: var(--vx-radius);
+    font-size: 14px; font-weight: 500; color: var(--vx-gray-600);
+    text-decoration: none; white-space: nowrap; cursor: pointer;
+    transition: background-color .15s ease, color .15s ease;
+}
+.vx-navbar-link:hover { color: var(--vx-gray-900); background: var(--vx-gray-100); }
+.vx-navbar-link.is-active { background: var(--vx-accent); color: #fff; font-weight: 600; }
+
+.vx-navbar-search {
+    display: flex; align-items: center; gap: .5rem; flex: 1; max-width: 420px;
+    background: var(--vx-bg-soft); border: 1px solid var(--vx-gray-200);
+    border-radius: var(--vx-radius); padding: .375rem .625rem; color: var(--vx-gray-500);
+}
+.vx-navbar-search input { flex: 1; border: 0; outline: none; background: transparent; font-size: 13px; color: var(--vx-gray-900); }
+.vx-navbar-search input::placeholder { color: var(--vx-gray-400); }
+
+.vx-navbar-end { display: flex; align-items: center; gap: .5rem; margin-left: auto; flex: none; }
+
+.vx-navbar-backdrop { position: fixed; inset: 0; top: var(--vx-header-h); background: var(--vx-overlay); z-index: 49; }
+.vx-navbar-backdrop[hidden] { display: none; }
+
+/* Collapse the links into a slide-in drawer on smaller screens. */
+@media (max-width: 900px) {
+    .vx-navbar-toggle { display: inline-flex; }
+    .vx-navbar-search { display: none; }
+    .vx-navbar-nav {
+        position: fixed; top: var(--vx-header-h); left: 0; bottom: 0;
+        width: min(300px, 82vw); flex-direction: column; align-items: stretch; gap: .125rem;
+        padding: .75rem; overflow-y: auto; z-index: 60;
+        background: var(--vx-surface); border-right: 1px solid var(--vx-gray-200); box-shadow: var(--vx-shadow-modal);
+        transform: translateX(-100%); transition: transform .22s ease;
+    }
+    .vx-navbar-nav.is-open { transform: none; }
+    .vx-navbar-link { padding: .625rem .75rem; font-size: 15px; }
 }

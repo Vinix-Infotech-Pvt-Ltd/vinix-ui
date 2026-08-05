@@ -19,6 +19,8 @@
  *   Popover:   <div class="vx-popover"><button data-vx-popover-toggle>…</button>
  *                <div class="vx-popover-panel" hidden>…</div></div>
  *   Toggle:    <button data-vx-toggle="#quickPanel">☰</button>   (flips .is-open on the target)
+ *   Navbar:    <nav class="vx-navbar" data-vx-navbar>… <button class="vx-navbar-toggle" data-vx-navbar-toggle>☰</button>
+ *                <div class="vx-navbar-nav">…links…</div></nav>   (mobile slide-in drawer + backdrop)
  *   Segmented: <div class="vx-segmented" data-vx-segmented><button class="vx-segment">…</button>…</div>
  *   Combobox:  <div class="vx-combobox" data-vx-combobox><input class="vx-input" data-vx-combobox-input>
  *                <input type="hidden" data-vx-combobox-value>
@@ -175,6 +177,39 @@
                 btn.setAttribute('aria-expanded', open ? 'true' : 'false');
             });
         });
+    }
+
+    /* ---------------------------------------------------------------- Navbar */
+    function initNavbars(root) {
+        (root || document).querySelectorAll('[data-vx-navbar-toggle]').forEach(function (btn) {
+            if (btn.__vxBound) return; btn.__vxBound = true;
+            var navbar = closest(btn, '.vx-navbar') || closest(btn, '[data-vx-navbar]');
+            if (!navbar) return;
+            var menu = navbar.querySelector('.vx-navbar-nav');
+            if (!menu) return;
+            function close() {
+                menu.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+                var bd = navbar.querySelector('.vx-navbar-backdrop');
+                if (bd) bd.remove();
+                document.body.style.overflow = '';
+            }
+            function open() {
+                menu.classList.add('is-open');
+                btn.setAttribute('aria-expanded', 'true');
+                var bd = make('div', 'vx-navbar-backdrop');
+                navbar.appendChild(bd);
+                on(bd, 'click', close);
+                document.body.style.overflow = 'hidden';
+            }
+            on(btn, 'click', function (e) { e.stopPropagation(); menu.classList.contains('is-open') ? close() : open(); });
+            // Close the drawer when a link inside it is tapped.
+            menu.querySelectorAll('a').forEach(function (a) { on(a, 'click', close); });
+            navbar.__vxCloseNav = close;
+        });
+    }
+    function closeAllNavbars() {
+        document.querySelectorAll('.vx-navbar').forEach(function (nb) { if (nb.__vxCloseNav) nb.__vxCloseNav(); });
     }
 
     /* --------------------------------------------------------------- Segmented */
@@ -383,6 +418,7 @@
         initDrawers(root);
         initPopovers(root);
         initToggles(root);
+        initNavbars(root);
         initSegmented(root);
         initCombobox(root);
         initMultiselect(root);
@@ -400,9 +436,16 @@
                 closeAllPopovers();
                 closeAllComboMenus();
                 closeAllCalendars();
+                closeAllNavbars();
                 document.querySelectorAll('.vx-modal-backdrop:not([hidden])').forEach(closeModal);
                 document.querySelectorAll('.vx-drawer-backdrop:not([hidden])').forEach(closeDrawer);
             }
+        });
+        // Reset any open mobile nav drawer when resizing up to desktop widths.
+        var __vxRz;
+        on(global, 'resize', function () {
+            clearTimeout(__vxRz);
+            __vxRz = setTimeout(function () { if (window.innerWidth > 900) closeAllNavbars(); }, 150);
         });
     }
 
@@ -410,7 +453,7 @@
         init: init, toast: toast,
         openModal: openModal, closeModal: function (id) { closeModal(document.getElementById(id)); },
         openDrawer: openDrawer, closeDrawer: function (id) { closeDrawer(document.getElementById(id)); },
-        version: '1.1.5'
+        version: '1.2.0'
     };
     global.VinixUI = VinixUI;
     if (typeof module !== 'undefined' && module.exports) module.exports = VinixUI;

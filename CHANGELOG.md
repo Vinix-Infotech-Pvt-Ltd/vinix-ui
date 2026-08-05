@@ -13,6 +13,16 @@ project adheres to [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ## [Unreleased]
 
+## [1.2.0] — 2026-08-03
+### Added
+- **Navbar component** — a reusable, responsive top bar (`.vx-navbar`) with brand,
+  nav links (`.vx-navbar-link`, `.is-active`), optional search (`.vx-navbar-search`),
+  and a right-side actions slot (`.vx-navbar-end`). On screens ≤900px the links
+  collapse into a **slide-in drawer** opened by a hamburger (`.vx-navbar-toggle`),
+  with a backdrop and close-on-link/backdrop/Escape — modelled on the DealSync360
+  header. Blade: `<x-vx-navbar>` + `<x-vx-navbar-link>`. JS auto-inits via
+  `data-vx-navbar` / `data-vx-navbar-toggle`. Fully token-driven (works in dark mode).
+
 ## [1.1.5] — 2026-08-03
 ### Fixed
 - **Laravel: the documented `<x-vx-button>` (hyphen) Blade syntax now works.**

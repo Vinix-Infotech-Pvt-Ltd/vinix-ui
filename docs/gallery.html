@@ -25,6 +25,27 @@
     </div>
     <p class="muted">One design system for every Vinix product. This page renders straight from <code>dist/vinix-ui.css</code> + <code>dist/vinix-ui.js</code>. Toggle dark mode to see the token-driven theme flip.</p>
 
+    <h2>Navbar</h2>
+    <div style="border:1px solid var(--vx-gray-200); border-radius:8px; overflow:hidden">
+        <nav class="vx-navbar" data-vx-navbar style="position:static">
+            <button class="vx-navbar-toggle" data-vx-navbar-toggle aria-label="Toggle menu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <a href="#" class="vx-navbar-brand">◆ Vinix</a>
+            <div class="vx-navbar-nav">
+                <a href="#" class="vx-navbar-link is-active">Dashboard</a>
+                <a href="#" class="vx-navbar-link">Saudas</a>
+                <a href="#" class="vx-navbar-link">Reports</a>
+                <a href="#" class="vx-navbar-link">Settings</a>
+            </div>
+            <div class="vx-navbar-end">
+                <span class="vx-badge vx-badge-live">LIVE</span>
+                <span class="vx-avatar vx-avatar-sm">AK</span>
+            </div>
+        </nav>
+        <div style="padding:.75rem 1rem; background:var(--vx-bg-soft); font-size:13px; color:var(--vx-gray-500)">Narrow the window below ~900px → the links collapse into a hamburger slide-in drawer.</div>
+    </div>
+
     <h2>Buttons</h2>
     <div class="row">
         <button class="vx-btn vx-btn-primary">Primary</button>

@@ -83,18 +83,18 @@ Details: **[Theming & Tokens](docs/theming.md)**.
 ## What's included
 
 - **Tokens** — colours, type scale, radii, shadows (`--vx-*`) + a full dark theme.
-- **40+ components** — button, card (+ outlined/interactive), stat-card, badge, table,
-  input, select, textarea, label, range, file dropzone, input-group, combobox,
-  multiselect, datepicker, alert, section-divider, dropdown, modal, drawer, popover,
-  tabs, accordion, tooltip, switch, checkbox, radio, spinner, chip, progress,
-  segmented control, stepper, timeline, list, avatar (+ group), skeleton,
-  empty-state, breadcrumb, pagination, toast.
+- **40+ components** — navbar (responsive), button, card (+ outlined/interactive),
+  stat-card, badge, table, input, select, textarea, label, range, file dropzone,
+  input-group, combobox, multiselect, datepicker, alert, section-divider, dropdown,
+  modal, drawer, popover, tabs, accordion, tooltip, switch, checkbox, radio, spinner,
+  chip, progress, segmented control, stepper, timeline, list, avatar (+ group),
+  skeleton, empty-state, breadcrumb, pagination, toast.
 - **Typography utilities** — `.vx-h1`–`.vx-h4`, `.vx-text-muted`, `.vx-link`, `.vx-mono`.
 - **Responsive app shell** — header bar, nav tabs, quick panel, bottom status bar,
   with a mobile nav toggle and off-canvas quick panel.
-- **Vanilla JS** (`window.VinixUI`) — dropdown, modal (focus-trapped), tabs, toast,
-  accordion, drawer, popover, segmented, combobox, multiselect, datepicker, and a
-  generic `data-vx-toggle`; auto-init via `data-vx-*`.
+- **Vanilla JS** (`window.VinixUI`) — navbar (mobile drawer), dropdown, modal
+  (focus-trapped), tabs, toast, accordion, drawer, popover, segmented, combobox,
+  multiselect, datepicker, and a generic `data-vx-toggle`; auto-init via `data-vx-*`.
 - **Tailwind preset** (optional) — `require('@vinixinfotech/ui/preset')`.
 
 ## Versioning
