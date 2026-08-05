@@ -169,8 +169,8 @@
 
 /* --- Row 2: menu bar (DealSync horizontal-nav) --- */
 .vx-navbar-menu { background: var(--vx-bg-soft); border-bottom: 1px solid var(--vx-gray-200); }
-.vx-navbar-menu-inner { display: flex; align-items: center; gap: .25rem; height: 2.75rem; padding: 0 1rem; overflow-x: auto; }
-.vx-navbar-menu-inner::-webkit-scrollbar { display: none; }
+/* overflow:visible so tab dropdown submenus are not clipped (matches DealSync). */
+.vx-navbar-menu-inner { display: flex; align-items: center; gap: .25rem; height: 2.75rem; padding: 0 1rem; overflow: visible; }
 .vx-navbar-tab {
     display: inline-flex; align-items: center; gap: .375rem; padding: .375rem .75rem; border-radius: var(--vx-radius);
     font-size: 13px; font-weight: 500; color: var(--vx-gray-500); white-space: nowrap; cursor: pointer;

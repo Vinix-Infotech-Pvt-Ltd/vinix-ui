@@ -1,4 +1,4 @@
-/*! Vinix UI v1.3.0 | (c) Vinix Infotech Pvt. Ltd. | MIT License */
+/*! Vinix UI v1.3.1 | (c) Vinix Infotech Pvt. Ltd. | MIT License */
 /* ==== tokens.css ==== */
 /* ============================================================================
    Vinix UI — Design Tokens
@@ -863,8 +863,8 @@ a.vx-list-item:hover, .vx-list-item.is-clickable:hover { background: var(--vx-bg
 
 /* --- Row 2: menu bar (DealSync horizontal-nav) --- */
 .vx-navbar-menu { background: var(--vx-bg-soft); border-bottom: 1px solid var(--vx-gray-200); }
-.vx-navbar-menu-inner { display: flex; align-items: center; gap: .25rem; height: 2.75rem; padding: 0 1rem; overflow-x: auto; }
-.vx-navbar-menu-inner::-webkit-scrollbar { display: none; }
+/* overflow:visible so tab dropdown submenus are not clipped (matches DealSync). */
+.vx-navbar-menu-inner { display: flex; align-items: center; gap: .25rem; height: 2.75rem; padding: 0 1rem; overflow: visible; }
 .vx-navbar-tab {
     display: inline-flex; align-items: center; gap: .375rem; padding: .375rem .75rem; border-radius: var(--vx-radius);
     font-size: 13px; font-weight: 500; color: var(--vx-gray-500); white-space: nowrap; cursor: pointer;

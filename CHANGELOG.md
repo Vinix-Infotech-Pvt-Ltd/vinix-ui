@@ -13,6 +13,13 @@ project adheres to [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ## [Unreleased]
 
+## [1.3.1] — 2026-08-03
+### Fixed
+- Navbar menu-bar dropdown submenus were invisible/unclickable — `.vx-navbar-menu-inner`
+  used `overflow-x: auto`, whose scroll container clipped the absolutely-positioned
+  `.vx-dropdown-menu`. Changed to `overflow: visible` (matches DealSync) so tab
+  dropdowns and their items work.
+
 ## [1.3.0] — 2026-08-03
 ### Added
 - **Navbar rebuilt as a faithful DealSync360 chrome** — a white header bar
